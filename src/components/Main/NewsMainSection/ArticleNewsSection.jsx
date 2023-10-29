@@ -6,7 +6,7 @@ const ArticleNewsSection = () => {
   // Function to fetch articles from the API
   const fetchArticles = async () => {
     try {
-      const response = await fetch('API_ENDPOINT_HERE'); // Replace 'API_ENDPOINT_HERE' with your API URL
+      const response = await fetch(''); // Replace 'API_ENDPOINT_HERE' with your API URL
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }

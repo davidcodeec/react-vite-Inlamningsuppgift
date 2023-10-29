@@ -7,6 +7,7 @@ import icon_9 from '../../../assets/images/icon9.svg'
 import BG from '../../../assets/images/BG.svg'
 import image_7 from '../../../assets/images/image7.png'
 import './ChooseUsSection.css'
+import ChooseUseBox from '../../Generics/MainGenerics/ChooseUseBox'
 
 const ChooseUsSection = () => {
   return (
@@ -20,30 +21,12 @@ const ChooseUsSection = () => {
           </div>
           <div className="choose-us">
 
-           <img src={icon_6} alt="Hand picture"/>
-            <div className="choose-us-icon-text">
-              <h3>Process Excellence</h3>
-              <p>Lorem ipsum dolor sit amet consectetur</p>
-            </div>
 
+            <ChooseUseBox src={icon_6} alt="Hand picture" title="Process Excellence" description="Lorem ipsum dolor sit amet consectetur"/>
 
+            <ChooseUseBox src={icon_7} alt="Phone with other products" title="Strategic Planning" description="Lorem, ipsum dolor sit amet consectetur"/>
 
-
-            <img src={icon_7} alt="Phone with other products"/>
-            <div className="choose-us-icon-text">
-              <h3>Strategic Planning</h3>
-              <p>Lorem, ipsum dolor sit amet consectetur</p>
-            </div>
-
-
-
-            <img src={icon_8} alt="Book and cup"/>
-            <div className="choose-us-icon-text">
-              <h3>Experience Design</h3>
-              <p>Lorem ipsum dolor, sit amet consectetur</p>
-            </div>
-
-
+            <ChooseUseBox src={icon_8} alt="Book and cup" title="Experience Design" description="Lorem ipsum dolor, sit amet consectetur"/>
 
             <img src={icon_9} alt="Laptop on the desk"/>
             <div className="choose-us-icon-text">
@@ -52,9 +35,6 @@ const ChooseUsSection = () => {
             </div>
 
           </div>
-
-
-
 
 
         </div>

@@ -25,7 +25,7 @@ const ArticleNewsSection = () => {
 
       </div>
 
-
+    
       <div className="image-spacing">
         <Link className="text-decoration-none" to="news_details.html">
           <div className="image-spacing-text">

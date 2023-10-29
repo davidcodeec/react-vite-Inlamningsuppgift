@@ -5,6 +5,10 @@ import image_8 from '../../../assets/images/Image8.png'
 import image_9 from '../../../assets/images/Image9.png'
 import image_10 from '../../../assets/images/Image10.png'
 import image_11 from '../../../assets/images/Image11.png'
+import eclipse_1 from '../../../assets/images/Ellipse1.png'
+import eclipse_2 from '../../../assets/images/Ellipse2.png'
+import eclipse_3 from '../../../assets/images/Ellipse3.png'
+
 
 const MeetOurSection = () => {
   return (
@@ -59,7 +63,7 @@ const MeetOurSection = () => {
                 dolorum obcaecati cum saepe nesciunt nemo eligendi numquam voluptate"
               </p>
 
-              <img src="images/Ellipse1.png" alt=""/>
+              <img src={eclipse_1} alt=""/>
 
             </div>
 
@@ -77,7 +81,7 @@ const MeetOurSection = () => {
                 dolorum obcaecati cum saepe nesciunt nemo eligendi numquam voluptate"
               </p>
 
-              <img src="images/Ellipse2.png" alt=""/>
+              <img src={eclipse_2} alt=""/>
 
             </div>
 
@@ -94,7 +98,7 @@ const MeetOurSection = () => {
                 dolorum obcaecati cum saepe nesciunt nemo eligendi numquam voluptate"
               </p>
 
-              <img src="images/Ellipse3.png" alt=""/>
+              <img src={eclipse_3} alt=""/>
 
             </div>
 

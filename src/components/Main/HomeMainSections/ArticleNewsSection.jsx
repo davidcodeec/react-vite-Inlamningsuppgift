@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../HomeMainSections/ArticleNewsSection.css'
-import image_12 from '../../../assets/images/image12.png'
-import image_13 from '../../../assets/images/image13.png'
-import image_14 from '../../../assets/images/image14.png'
+import image_12 from '@images/image12.png'
+import image_13 from '@images/image13.png'
+import image_14 from '@images/image14.png'
 
 const ArticleNewsSection = () => {
   return (
@@ -20,7 +20,7 @@ const ArticleNewsSection = () => {
         </div>
 
         <div className="center-content">
-          <Link className="btn-black" to="projects.html">Browse Articles<i className="fa-solid fa-arrow-up-right"></i></Link>
+          <button className="btn-yellow">Browse Articles<i className="fa-solid fa-arrow-up-right"></i></button>
         </div>
 
       </div>

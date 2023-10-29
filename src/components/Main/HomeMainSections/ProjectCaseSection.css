@@ -1,0 +1,184 @@
+.project-case-section .container .section-title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+@media only screen and (max-width: 541px) and (min-width: 420px) {
+  .project-case-section .container .section-title p {
+    text-align: start;
+    display: inline-block;
+    width: 40%;
+    margin-left: 50px;
+  }
+}
+@media only screen and (max-width: 420px) and (min-width: 375px) {
+  .project-case-section .container .section-title p {
+    display: inline-block;
+    width: 40%;
+    margin-left: 50px;
+  }
+}
+@media only screen and (max-width: 541px) and (min-width: 420px) {
+  .project-case-section .container .section-title h2 {
+    display: inline-block;
+    width: 50%;
+    margin-right: 100px;
+  }
+}
+@media only screen and (max-width: 420px) and (min-width: 360px) {
+  .project-case-section .container .section-title h2 {
+    display: inline-block;
+    width: 50%;
+    margin-right: 100px;
+  }
+}
+.project-case-section .container .project-end-case {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+@media (min-width: 768px) {
+  .project-case-section .container .project-end-case {
+    /*  grid-template-columns: 1fr 1fr; */
+  }
+}
+@media only screen and (max-width: 640px) and (min-width: 575px) {
+  .project-case-section .container .project-end-case {
+    display: inline-block;
+    width: 75%;
+    margin: 30px;
+  }
+}
+@media only screen and (max-width: 572px) and (min-width: 542px) {
+  .project-case-section .container .project-end-case {
+    display: inline-block;
+    width: 65%;
+    margin: 30px;
+  }
+}
+@media only screen and (max-width: 541px) and (min-width: 420px) {
+  .project-case-section .container .project-end-case {
+    display: inline-block;
+    width: 55%;
+    margin: 30px;
+  }
+}
+@media only screen and (max-width: 420px) and (min-width: 360px) {
+  .project-case-section .container .project-end-case {
+    display: inline-block;
+    width: 45%;
+    margin: 30px;
+  }
+}
+.project-case-section .container .project-end-case .project {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  color: #191919;
+  text-decoration: none;
+  /* For increasing or reducing the image size after hover */
+}
+.project-case-section .container .project-end-case .project img {
+  width: 100%;
+  height: auto;
+}
+.project-case-section .container .project-end-case .project h3 {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  padding-top: 35px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #DAD9D3;
+}
+.project-case-section .container .project-end-case .project .readmore {
+  padding: 15px 15px;
+  display: block;
+  text-align: right;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
+  color: #191919;
+}
+.project-case-section .container .project-end-case .project .readmore i {
+  margin-left: 3px;
+}
+.project-case-section .container .project-end-case .project:hover .readmore {
+  text-decoration: underline;
+}
+.project-case-section .container .project-end-case .project:hover img {
+  transform: scale(1.1);
+}
+.project-case-section .container .center-content {
+  margin-top: 50px;
+  margin-bottom: 90px;
+}
+@media only screen and (max-width: 1000px) and (min-width: 997px) {
+  .project-case-section .container .center-content {
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 90px;
+    width: 100%;
+    left: 400px;
+    top: 40px;
+  }
+}
+@media only screen and (max-width: 997px) and (min-width: 768px) {
+  .project-case-section .container .center-content {
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 90px;
+    width: 100%;
+    left: 40px;
+    top: 40px;
+  }
+}
+@media only screen and (max-width: 768px) and (min-width: 640px) {
+  .project-case-section .container .center-content {
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 90px;
+    width: 100%;
+    left: 0px;
+    top: 40px;
+  }
+}
+@media only screen and (max-width: 640px) and (min-width: 575px) {
+  .project-case-section .container .center-content {
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 90px;
+    width: 100%;
+    left: -40px;
+    top: 40px;
+  }
+}
+@media only screen and (max-width: 572px) and (min-width: 542px) {
+  .project-case-section .container .center-content {
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 90px;
+    width: 100%;
+    left: -120px;
+    top: 40px;
+  }
+}
+@media only screen and (max-width: 541px) and (min-width: 420px) {
+  .project-case-section .container .center-content {
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 90px;
+    width: 100%;
+    left: -50px;
+    top: 40px;
+  }
+}
+@media only screen and (max-width: 420px) and (min-width: 360px) {
+  .project-case-section .container .center-content {
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 90px;
+    width: 100%;
+    left: -100px;
+    top: 40px;
+  }
+}

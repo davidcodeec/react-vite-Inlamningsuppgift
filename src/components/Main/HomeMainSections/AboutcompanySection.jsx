@@ -1,8 +1,11 @@
 import React from 'react'
 import image_1 from '../../../assets/images/Image1.png'
+import { Link } from 'react-router-dom'
+import '../HomeMainSections/AboutcompanySection.css'
 
 const AboutcompanySection = () => {
   return (
+    <>
     <section className="about-company">
     <div className="container">
 
@@ -29,7 +32,7 @@ const AboutcompanySection = () => {
         </div>
 
         <div className="play-button-text">
-          <a className="btn-yellow" href="consulting.html">Learn More<i className="fa-solid fa-arrow-up-right"></i></a>
+          <Link className="btn-yellow" to="consulting.html">Learn More<i className="fa-solid fa-arrow-up-right"></i></Link>
 
           <div className="center-content">
             <button className="btn-play"><i className="fa-solid fa-play"></i></button>
@@ -42,6 +45,7 @@ const AboutcompanySection = () => {
       </div>
     </div>
   </section>
+  </>
   )
 }
 

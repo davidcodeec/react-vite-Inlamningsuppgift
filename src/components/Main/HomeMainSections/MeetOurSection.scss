@@ -1,0 +1,201 @@
+.meet-our-section {
+
+    background-color: #f0d082;
+    
+    
+
+    .container {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
+        padding-bottom: 100px;
+       
+
+        
+       .section-title-button{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            @media (max-width: 946px) {
+                display: flex;
+                flex-direction: column;
+            }
+
+              
+            @media only screen and (max-width: 420px) and (min-width: 360px) {
+                display: inline-block;
+                width:50%;
+                margin-right: 100px;  
+                margin-right: 500px;
+               
+            } 
+
+
+                .section-title {
+                
+                        display: flex;
+                        flex-direction: column;
+                
+                    }
+        }
+       
+
+        .center-content{
+
+            .btn-yellow{
+                background-color: #F9D783;
+                border: 1px solid #191919;
+                color: #191919;
+                text-decoration: none;
+                padding: 15px 30px;
+                font-weight: 600;
+                font-size: 16px;
+                border-radius: 25px;
+                transition: background-color 0.2s ease-in-out;
+            
+                    i{
+                        margin-left: 8px;
+                        font-size: 0,9em;
+                    }
+            
+                            &:hover{
+                                background-color: #191919;
+                                border: 1px solid #191919;
+                                color: #F0EFE9;
+                            }
+            }
+        }
+
+
+        .image-spacing{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+
+            @media (max-width: 947px) {
+                display: none;
+            }
+        }
+
+        
+        .circle-boxes{
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            column-gap: 10px;
+            padding-top: 60px;
+            padding-bottom: 60px;
+
+
+            @media only screen and (max-width: 420px) and (min-width: 360px) {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                width:50%;
+                margin-right: 100px;  
+                margin-right: 500px;
+               
+            } 
+
+            .circles {
+                    
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+                    background-color: rgba(25, 25, 25, 0.200);
+                
+                    &.active {
+                            background-color: #191919;
+                        }
+
+
+                            &:hover {
+                                background-color: #191919;
+                            }
+                
+                
+                
+                }
+
+
+
+        }
+        
+
+        .text-box-images{
+            border-radius: 1px;
+            background-color: #ffffff;
+            height: 600px;
+            padding: 20px;
+
+            @media (max-width: 571px) {
+                display: none;
+            }
+
+
+            @media (max-width: 769px) {
+                display: none;
+            }
+
+
+            .text-box{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 10px;
+
+
+
+                    p{
+                        color: #f94d1c;
+                        font-weight: 600;
+                        font-family: "Inter";
+                        
+                    }
+
+                    h2{
+                        font-size: 23px;
+                        line-height: 28px;
+                        color: #191919;
+                        font-weight: 700;
+                        font-family: "DM Sans";
+                    }
+
+            }
+            
+
+            .text-box-star-icon{
+                
+                border-radius: 1px;
+                display: flex;
+                flex-direction: row;
+                padding: 60px;
+
+
+                
+
+                p{
+                    padding: 5px;
+                }
+            
+            
+            }
+
+            .center-content {
+                margin-top: 50px;
+                margin-bottom: 90px;
+                
+            }
+
+        }
+       
+       
+    }
+
+}

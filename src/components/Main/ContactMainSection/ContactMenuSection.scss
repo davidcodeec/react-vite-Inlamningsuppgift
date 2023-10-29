@@ -1,0 +1,163 @@
+
+.contact-menu-section {
+    
+
+    .container {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+            @media (min-width: 1200px) {
+                    text-align: left;
+                }
+
+        .content {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            text-align: center;
+            
+
+
+            .contact-menu{     
+
+                display: flex;
+                flex-direction: row;
+                column-gap: 20px;
+                
+
+                @media only screen and (max-width: 1200px) and (min-width: 997px) {
+                    
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    margin: 10px;
+                    row-gap: 20px;
+
+              } 
+
+                @media only screen and (max-width: 997px) and (min-width: 768px) {
+                
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    margin: 10px;
+                    row-gap: 20px;
+
+              } 
+
+
+                @media only screen and (max-width: 768px) and (min-width: 640px) {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    margin: 10px;
+                    row-gap: 20px;
+                } 
+
+
+                @media only screen and (max-width: 640px) and (min-width: 575px) {
+                    display: flex;
+                    flex-direction: column;
+                    width: 90%;
+                    padding-right: 50%;
+                    row-gap: 20px;
+                    
+                } 
+
+
+
+                @media only screen and (max-width: 575px) and (min-width: 542px) {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: center;
+                    width: 100%;
+                    padding-right: 750px;
+                    row-gap: 20px;
+                    
+                } 
+
+                @media only screen and (max-width: 541px) and (min-width: 420px) {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: center;
+                    width: 80%;
+                    padding-right: 675px;
+                    row-gap: 20px;
+
+                } 
+
+
+                @media only screen and (max-width: 420px) and (min-width: 360px) {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: center;
+                    width: 80%;
+                    padding-right: 670px;
+                    row-gap: 20px;
+                    
+                } 
+
+
+                .contact-menu-card{
+
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 20px;
+                    width: 420px;
+                    height: 206px;      
+                    background-color: #ffffff;
+                    border: 1px solid RGBA(25,25,25,0.2 );
+                    position: relative;
+                    
+
+
+                   i{
+                        /* border: 8px solid black; */
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 25px;
+                        /* column-gap: 30px; */
+                        /* background: #191919;  */
+                        position: relative;
+                        right:20px;
+                        bottom: 20px;
+                    }
+
+
+                    .contact-menu-card-text{
+                            display: flex;
+                            flex-direction: column;
+                            row-gap: 20px;
+                            column-gap: 10px;
+
+
+                            h3{
+                                line-height: 17px;
+                                color: #191919;
+                                font-weight: 700;
+                                font-family: "DM Sans";
+
+                            p{
+                                line-height: 14px;
+                                color: #191919;
+                                font-weight: 400;
+                                font-family: "Inter";
+                                
+                            }   
+
+                            }
+                }             
+            } 
+
+       }
+     }
+
+ }
+
+}  

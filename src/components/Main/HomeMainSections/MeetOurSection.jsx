@@ -1,4 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import '../HomeMainSections/MeetOurSection.css'
+import image_8 from '../../../assets/images/Image8.png'
+import image_9 from '../../../assets/images/Image9.png'
+import image_10 from '../../../assets/images/Image10.png'
+import image_11 from '../../../assets/images/Image11.png'
 
 const MeetOurSection = () => {
   return (
@@ -14,17 +20,17 @@ const MeetOurSection = () => {
           </div>
 
           <div className="center-content">
-            <button className="btn-yellow" href="projects.html">Browse Team<i className="fa-solid fa-arrow-up-right"></i></button>
+            <Link className="btn-yellow" to="projects.html">Browse Team<i className="fa-solid fa-arrow-up-right"></i></Link>
           </div>
 
         </div>
 
 
         <div className="image-spacing">
-          <img src="images/Image8.png" alt="Woman Standing"/>
-          <img src="images/Image9.png" alt="Man Standing"/>
-          <img src="images/Image10.png" alt="Woman close to the window"/>
-          <img src="images/Image11.png" alt="Man smiling"/>
+          <img src={image_8} alt="Woman Standing"/>
+          <img src={image_9} alt="Man Standing"/>
+          <img src={image_10} alt="Woman close to the window"/>
+          <img src={image_11} alt="Man smiling"/>
         </div>
 
         <div className="circle-boxes">

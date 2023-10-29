@@ -98,6 +98,50 @@ body {
   color: #F0EFE9;
 }
 
+.section-title {
+  padding-top: 60px;
+  padding-bottom: 30px;
+}
+@media (min-width: 768px) {
+  .section-title {
+    padding-top: 120px;
+    padding-bottom: 90px;
+  }
+}
+.section-title p {
+  color: #F94D1C;
+}
+.section-title h2 {
+  color: #191919;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-size: 45px;
+}
+
+.searchbox {
+  background-color: #f3f3f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  padding: 10px 20px;
+  border: 5px solid black;
+}
+.searchbox input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  margin-left: 5px;
+  width: 100%;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .wrapper {
   display: grid;
   gap: 20px;

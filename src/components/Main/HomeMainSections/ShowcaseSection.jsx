@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import '../HomeMainSections/ShowcaseSection.css'
 import background_lines from '../../../assets/images/icon14.svg'
 import man_in_suito from '../../../assets/images/image.png'
 

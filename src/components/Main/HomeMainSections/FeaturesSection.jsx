@@ -1,18 +1,21 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import icon_6 from '../../../assets/images/icon6.svg'
 import icon_7 from '../../../assets/images/icon7.svg'
 import icon_8 from '../../../assets/images/icon8.svg'
 import icon_9 from '../../../assets/images/icon9.svg'
+import '../HomeMainSections/FeaturesSection.css'
 
 
 const FeaturesSection = () => {
   return (
+    <>
     <section className="features">
     <div className="container">
       <div className="content">
         <h4>Features</h4>
         <p>Our Accounting is trusted by thousand of companies</p>
-        <a className="btn-yellow" href="about.html">Learn More<i className="fa-solid fa-arrow-up-right"></i></a>
+        <Link className="btn-yellow" to="about.html">Learn More<i className="fa-solid fa-arrow-up-right"></i></Link>
       </div>
 
       <div className="container content-items">
@@ -39,6 +42,7 @@ const FeaturesSection = () => {
       </div>
     </div>
   </section>
+  </>
   )
 }
 

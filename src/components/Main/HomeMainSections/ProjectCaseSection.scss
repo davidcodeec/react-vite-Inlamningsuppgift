@@ -1,0 +1,222 @@
+.project-case-section{
+
+    .container{
+
+        .section-title{
+            text-align: center;
+            margin-bottom: 10px;
+
+            p{
+                @media only screen and (max-width: 541px) and (min-width: 420px) {
+                    text-align: start;
+                    display: inline-block;
+                    width:40%;
+                    margin-left: 50px;
+                   
+                } 
+
+                @media only screen and (max-width: 420px) and (min-width: 375px) {
+                    display: inline-block;
+                    width:40%;
+                    margin-left: 50px;
+                   
+                } 
+            }
+
+            h2{
+                @media only screen and (max-width: 541px) and (min-width: 420px) {
+                    display: inline-block;
+                    width:50%;
+                    margin-right: 100px;            
+                   
+                } 
+
+                @media only screen and (max-width: 420px) and (min-width: 360px) {
+                    display: inline-block;
+                    width:50%;
+                    margin-right: 100px;   
+
+                   
+                } 
+            }
+        }
+
+        .project-end-case{
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap:30px;
+
+
+            @media (min-width: 768px) {
+                   /*  grid-template-columns: 1fr 1fr; */
+                }
+
+                @media only screen and (max-width: 640px) and (min-width: 575px) {
+                    display: inline-block;
+                    width: 75%;
+                    margin:30px;
+                } 
+    
+                
+    
+                @media only screen and (max-width: 572px) and (min-width: 542px) {
+                    display: inline-block;
+                    width: 65%;
+                    margin:30px;
+                } 
+    
+               
+                @media only screen and (max-width: 541px) and (min-width: 420px) {
+                    display: inline-block;
+                    width: 55%;
+                    margin:30px;
+                   
+                } 
+    
+                @media only screen and (max-width: 420px) and (min-width: 360px) {
+                    display: inline-block;
+                    width: 45%;
+                    margin:30px;
+                   
+                } 
+
+            
+            .project {
+
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: auto 1fr auto;
+                    color: #191919;
+                    text-decoration: none;
+
+            
+                    img {
+                        width:100%;
+                        height: auto;
+                    }
+            
+                    h3 {
+                        font-family: 'DM Sans', sans-serif;
+                        font-weight: 700;
+                        font-size: 20px;
+                        padding-top: 35px;
+                        padding-bottom: 16px;
+                        border-bottom: 1px solid #DAD9D3;
+                    }
+            
+            
+                    .readmore {
+                        padding: 15px 15px;
+                        display: block;
+                        text-align: right;
+                        font-family: 'Inter', sans-serif;
+                        font-weight: 500;
+                        font-size: 14px;
+                        text-decoration: none;
+                        color: #191919;
+
+                        i {
+                            margin-left: 3px;
+                        }
+
+                    }
+
+
+                    &:hover .readmore{
+                        text-decoration: underline;
+                    }
+
+                    /* For increasing or reducing the image size after hover */
+                    &:hover img {
+                        transform: scale(1.1);
+                    }
+
+                }
+
+        }
+
+                .center-content {
+                    margin-top: 50px;
+                    margin-bottom: 90px;
+
+                    @media only screen and (max-width: 1000px) and (min-width: 997px) {
+                    
+                        position: relative;
+                        margin-top: 50px;
+                        margin-bottom: 90px;
+                        width: 100%;
+                        left:400px;
+                        top:40px;
+  
+                  } 
+
+                    @media only screen and (max-width: 997px) and (min-width: 768px) {
+                    
+                        position: relative;
+                        margin-top: 50px;
+                        margin-bottom: 90px;
+                        width: 100%;
+                        left:40px;
+                        top:40px;
+  
+                  } 
+
+
+                    @media only screen and (max-width: 768px) and (min-width: 640px) {
+                        position: relative;
+                        margin-top: 50px;
+                        margin-bottom: 90px;
+                        width: 100%;
+                        left:0px;
+                        top:40px;
+                    } 
+    
+    
+                    @media only screen and (max-width: 640px) and (min-width: 575px) {
+                        position: relative;
+                        margin-top: 50px;
+                        margin-bottom: 90px;
+                        width: 100%;
+                        left:-40px;
+                        top:40px;
+                    } 
+    
+                    
+    
+                    @media only screen and (max-width: 572px) and (min-width: 542px) {
+                        position: relative;
+                        margin-top: 50px;
+                        margin-bottom: 90px;
+                        width: 100%;
+                        left:-120px;
+                        top:40px;
+    
+                    } 
+    
+                   
+                    @media only screen and (max-width: 541px) and (min-width: 420px) {
+                        position: relative;
+                        margin-top: 50px;
+                        margin-bottom: 90px;
+                        width: 100%;
+                        left:-50px;
+                        top:40px;
+                       
+                    } 
+    
+                    @media only screen and (max-width: 420px) and (min-width: 360px) {
+                        position: relative;
+                        margin-top: 50px;
+                        margin-bottom: 90px;
+                        width: 100%;
+                        left:-100px;
+                        top:40px;
+                       
+                    } 
+                }
+
+    }
+
+
+}

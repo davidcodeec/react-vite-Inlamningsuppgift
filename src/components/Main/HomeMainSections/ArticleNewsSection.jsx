@@ -1,7 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import '../HomeMainSections/ArticleNewsSection.css'
+import image_12 from '../../../assets/images/image12.png'
+import image_13 from '../../../assets/images/image13.png'
+import image_14 from '../../../assets/images/image14.png'
 
 const ArticleNewsSection = () => {
   return (
+    <>
     <section className="article-news-section">
     <div className="container">
 
@@ -14,32 +20,32 @@ const ArticleNewsSection = () => {
         </div>
 
         <div className="center-content">
-          <button className="btn-black" href="projects.html">Browse Articles<i className="fa-solid fa-arrow-up-right"></i></button>
+          <Link className="btn-black" to="projects.html">Browse Articles<i className="fa-solid fa-arrow-up-right"></i></Link>
         </div>
 
       </div>
 
 
       <div className="image-spacing">
-        <a className="text-decoration-none" href="news_details.html">
+        <Link className="text-decoration-none" to="news_details.html">
           <div className="image-spacing-text">
             <div className="date">
               <h3>25</h3>
               <p>Mar</p>
             </div>
-            <img src="images/Image12.png" alt="Woman Standing"/>
+            <img src={image_12} alt="Woman Standing"/>
             <p>Business</p>
             <h3>How To Use Digitalization In The Classroom</h3>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero.</p>
           </div>
-        </a>
+        </Link>
 
         <div className="image-spacing-text">
           <div className="date">
             <h3>17</h3>
             <p>Mar</p>
           </div>
-          <img src="images/Image13.png" alt="Man Standing"/>
+          <img src={image_13} alt="Man Standing"/>
           <p>Business</p>
           <h3>How To Implement Chat GPT In Your Projects</h3>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero.</p>
@@ -50,7 +56,7 @@ const ArticleNewsSection = () => {
             <h3>13</h3>
             <p>Mar</p>
           </div>
-          <img src="images/Image14.png" alt="Woman close to the window"/>
+          <img src={image_14} alt="Woman close to the window"/>
           <p>Business</p>
           <h3>The Guide To Support Modern CSS Design</h3>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero.</p>
@@ -69,7 +75,7 @@ const ArticleNewsSection = () => {
     </div>
 
   </section>
-
+  </>
 
   )
 }

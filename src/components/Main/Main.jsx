@@ -1,20 +1,19 @@
 import React from 'react'
-import ShowcaseSection from './MainSections/ShowcaseSection'
-import './Main.css'
-import LogosSection from './MainSections/LogosSection'
-import FeaturesSection from './MainSections/FeaturesSection'
-import AboutcompanySection from './MainSections/AboutcompanySection';
-import ServicesSection from './MainSections/ServicesSection'
-import ChooseUsSection from './MainSections/ChooseUsSection'
-import ProjectCaseSection from './MainSections/ProjectCaseSection'
-import MeetOurSection from './MainSections/MeetOurSection'
-import ArticleNewsSection from './MainSections/ArticleNewsSection'
-import NewsLetterSection from './MainSections/NewsLetterSection'
+import ShowcaseSection from './HomeMainSections/ShowcaseSection'
+import LogosSection from './HomeMainSections/LogosSection'
+import FeaturesSection from './HomeMainSections/FeaturesSection'
+import AboutcompanySection from './HomeMainSections/AboutcompanySection';
+import ServicesSection from './HomeMainSections/ServicesSection'
+import ChooseUsSection from './HomeMainSections/ChooseUsSection'
+import ProjectCaseSection from './HomeMainSections/ProjectCaseSection'
+import MeetOurSection from './HomeMainSections/MeetOurSection'
+import ArticleNewsSection from './HomeMainSections/ArticleNewsSection'
+import NewsLetterSection from './HomeMainSections/NewsLetterSection'
 
 
 const Main = () => {
   return (
-    <>
+    <main>
       <ShowcaseSection/>
       <LogosSection/>
       <FeaturesSection/>
@@ -25,8 +24,7 @@ const Main = () => {
       <MeetOurSection/>
       <ArticleNewsSection/>
       <NewsLetterSection/>
-
-    </>
+    </main>
     
   )
 }

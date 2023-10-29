@@ -1,0 +1,178 @@
+.message-section {
+
+    background-color: #FFFFFF;
+    
+
+    .container {
+
+        background-color: #f0efe9;
+        width: 1320px;
+
+
+        .content {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            text-align: center;
+            
+
+
+            .message-items{    
+                display: flex;
+                flex-direction: column;
+                width: 1021px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                margin-left: 100px;
+                margin-top: 100px;
+
+                @media only screen and (max-width: 1200px) and (min-width: 997px) {
+                    
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    margin: 10px;
+                    row-gap: 20px;
+
+              } 
+
+                @media only screen and (max-width: 997px) and (min-width: 768px) {
+                
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    margin: 10px;
+                    row-gap: 20px;
+
+              } 
+
+
+                @media only screen and (max-width: 768px) and (min-width: 640px) {
+                    display: flex;
+                    flex-direction: column;
+                    width: 80%;
+                    margin: 10px;
+                    row-gap: 20px;
+                } 
+
+
+
+                @media only screen and (max-width: 640px) and (min-width: 575px) {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: center;
+                    width: 80%;
+                    padding-right: 0%;
+                    margin:0;
+                    row-gap: 20px;
+                    
+                    
+                } 
+
+
+
+                @media only screen and (max-width: 575px) and (min-width: 542px) {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: center;
+                    width: 80%;
+                    padding-right: 30%;
+                    margin:0;
+                    row-gap: 20px;
+                    
+                    
+                } 
+
+                @media only screen and (max-width: 541px) and (min-width: 420px) {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: center;
+                    width: 80%;
+                    padding-right: 45%;
+                    margin:0;
+                    row-gap: 20px;
+                  
+
+                } 
+
+
+                @media only screen and (max-width: 420px) and (min-width: 360px) {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: center;
+                    width: 80%;
+                    padding-right: 55%;
+                    margin:0;
+                    row-gap: 20px;
+                    
+                } 
+
+
+                   
+                .message-text{
+
+                  
+
+                    padding: 20px;
+                    
+                    h3{
+                        color: #191919;
+                        font-weight: 700;
+                        font-family: "DM Sans";
+                        font-size: 45px;
+                    }
+                }
+
+                .message-btns{
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 20px;
+                
+                
+                .searchbox{
+                    background-color: #FFFFFF;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 25px;
+                    padding: 10px 20px;
+                    border: 1px solid black;
+                    width: 100%;
+                
+                    input{
+                        background-color: transparent;
+                        border: none;
+                        outline: none;
+                        font-size: 12px;
+                        margin-left: 5px;
+                        width: 100%;
+                
+                    }
+                }
+
+                .message-textarea{
+
+                    background-color: #FFFFFF;
+                    border-radius: 25px;
+                    padding: 10px 20px;
+                    border: 1px solid black;
+                    width: 100%;
+                    resize: none;
+
+                }
+
+                .btn-yellow{
+                    width: 100%;
+                }
+
+       }
+
+    }
+     }
+
+ }
+
+}  

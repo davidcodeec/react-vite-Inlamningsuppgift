@@ -1,0 +1,70 @@
+
+.newsletter{
+    
+    background-color: #F0EFE9;
+    position: relative;
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    .newsletter-background-lines{
+        position: absolute;
+        bottom:50px;
+        right:0;
+
+        @media (max-width: 525px) {
+            display: none;
+        }
+
+    }
+
+    .container {
+        
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media only screen and (max-width: 541px) and (min-width: 420px) {
+            display: inline-block;
+            width:60%;
+            font-size: 25px;
+            margin-left: 50px;
+           
+        } 
+
+        @media only screen and (max-width: 420px) and (min-width: 360px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            margin-left: 50px;
+            font-size: 20px;
+            padding-top: -20px;
+           
+        } 
+
+        h2 {
+
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 45px;
+
+        }
+        
+        form {
+
+            input{
+                border-radius: 25px;
+                outline: none;
+                border: 1px solid rgba(25, 25, 25, 0.10);
+                margin-right: 20px;
+                text-decoration: none;
+                padding: 15px 30px;
+                font-size: 16px;
+             }
+            
+        }
+
+    }
+}
+

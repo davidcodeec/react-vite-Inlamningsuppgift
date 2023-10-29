@@ -1,9 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import icon_1 from '../../../assets/images/icon1.svg'
 import icon_2 from '../../../assets/images/icon2.svg'
 import icon_3 from '../../../assets/images/icon3.svg'
 import icon_4 from '../../../assets/images/icon4.svg'
 import icon_5 from '../../../assets/images/icon5.svg'
+import './LogosSection.css'
 
 
 const LogosSection = () => {

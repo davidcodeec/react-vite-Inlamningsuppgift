@@ -1,0 +1,15 @@
+.map-section {
+  background-color: #FFFFFF;
+}
+.map-section .content {
+  padding-top: 60px;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .map-section .content .map {
+    display: none;
+  }
+}
+.map-section .content .map img {
+  width: 100%;
+}

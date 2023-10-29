@@ -1,4 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import '../HomeMainSections/ProjectCaseSection.css'
+import image_3 from '../../../assets/images/image3.png'
+import image_4 from '../../../assets/images/image4.png'
+import image_5 from '../../../assets/images/image5.png'
+import image_6 from '../../../assets/images/image6.png'
 
 const ProjectCaseSection = () => {
   return (
@@ -9,26 +15,26 @@ const ProjectCaseSection = () => {
           <h2>Let's Looks Our Global Projects</h2>
         </div>
         <div className="project-end-case">
-          <a className="project" href="">
-            <img src="images/Image3.png" alt="Man with Newspaper"/>
+          <Link className="project" href="">
+            <img src={image_3} alt="Man with Newspaper"/>
             <h3>Grow your business</h3>
             <div className="readmore">Read More<i className="fa-solid fa-arrow-up-right"></i></div>
-          </a>
-          <a className="project" href="">
-            <img src="images/Image4.png" alt="Phone with other products"/>
+          </Link>
+          <Link className="project" href="">
+            <img src={image_4} alt="Phone with other products"/>
             <h3>Why your client needs a responsive website</h3>
             <div className="readmore">Read More<i className="fa-solid fa-arrow-up-right"></i></div>
-          </a>
-          <a className="project" href="">
-            <img src="images/Image5.png" alt="Book and cup"/>
+          </Link>
+          <Link className="project" href="">
+            <img src={image_5} alt="Book and cup"/>
             <h3>Educate your employees to get better results</h3>
             <div className="readmore">Read More<i className="fa-solid fa-arrow-up-right"></i></div>
-          </a>
-          <a className="project" href="">
-            <img src="images/Image6.png" alt="Laptop on the desk"/>
+          </Link>
+          <Link className="project" href="">
+            <img src={image_6} alt="Laptop on the desk"/>
             <h3>Business Insights is a important piece of your business</h3>
             <div className="readmore">Read More<i className="fa-solid fa-arrow-up-right"></i></div>
-          </a>
+          </Link>
         </div>
 
         <div className="center-content">

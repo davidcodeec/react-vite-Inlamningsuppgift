@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import './ServicesSection.css'
 
 const ServicesSection = () => {
   return (
@@ -8,7 +10,7 @@ const ServicesSection = () => {
           <p>Our Services</p>
           <h2>We Provide The Best Service For Consulting</h2>
         </div>
-        <div className="services-cards">
+        <div className='services-cards'>
           <div className="services-box-button services-section-box">
 
 
@@ -36,7 +38,7 @@ const ServicesSection = () => {
             </div>
 
             <div className="center-content">
-              <a className="btn-black" href="projects.html">Browse Services<i className="fa-solid fa-arrow-up-right"></i></a>
+              <Link className="btn-black" href="projects.html">Browse Services<i className="fa-solid fa-arrow-up-right"></i></Link>
             </div>
           </div>
 

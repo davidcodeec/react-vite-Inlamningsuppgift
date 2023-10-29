@@ -1,0 +1,28 @@
+
+.map-section {
+
+    background-color: #FFFFFF;
+    
+
+
+        .content {
+            padding-top: 60px;
+            text-align: center;
+            
+
+
+            .map{   
+                
+                @media (max-width: 768px) {
+                    display: none;
+                }
+
+                img{
+                    width: 100%;
+                }
+       
+            }
+     }
+
+ }
+

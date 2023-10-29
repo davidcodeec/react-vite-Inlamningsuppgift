@@ -1,14 +1,14 @@
 import React from 'react'
 import Header from '../components/Header/Header'
-import Main from '../components/Main/Main'
 import Footer from '../components/Footer/Footer'
+import ContactMain from '../components/Main/ContactMainSection/ContactMain'
 
 
 const Contacts = () => {
   return (
     <div>
       <Header/>
-       <Main/> 
+       <ContactMain/>
        <Footer/>
     </div>
   )

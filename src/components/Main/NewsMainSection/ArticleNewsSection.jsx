@@ -34,7 +34,7 @@ const ArticleNewsSection = () => {
             <a key={article.id} className="link-text-image" href={`news_details.html?id=${article.id}`}>
               <div className="image-spacing-text">
                 <div className="date">
-                  {/* You can format the published date here */}
+                  {/*Used to format the published date */}
                   <h3>{new Date(article.published).getDate()}</h3>
                   <p>Mar</p>
                 </div>

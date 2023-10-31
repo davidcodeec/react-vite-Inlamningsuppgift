@@ -5,9 +5,25 @@ import icon_7 from '../../../assets/images/icon7.svg'
 import icon_8 from '../../../assets/images/icon8.svg'
 import icon_9 from '../../../assets/images/icon9.svg'
 import '../HomeMainSections/FeaturesSection.css'
+import { useState, useEffect } from 'react';
+import FeaturesSectionBox from '../../Generics/MainGenerics/FeaturesSectionBox'
 
 
 const FeaturesSection = () => {
+
+  const [features, setFeatures] = useState([]);
+
+  useEffect(() => {
+    const featuresList = [
+      { src:icon_6, title: "Business Advice", description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis in nam possimus." },
+      { src:icon_7, title: "Startup Business", description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis in nam possimus." },
+      { src:icon_8, title: "Financial Advice", description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis in nam possimus." },
+      { src:icon_9, title: "Risk Management", description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis in nam possimus." },
+    ];
+    
+    setFeatures(featuresList);
+  }, []);
+
   return (
     <>
     <section className="features">
@@ -19,26 +35,9 @@ const FeaturesSection = () => {
       </div>
 
       <div className="container content-items">
-        <div>
-          <img src={icon_6} alt='Alt text for embed'/>
-          <h2>Business Advice</h2>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-        </div>
-        <div>
-          <img src={icon_7} alt='Alt text for embed'/>
-          <h2>Financial Advice</h2>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-        </div>
-        <div>
-          <img src={icon_8} alt='Alt text for embed'/>
-          <h2>Startup Business</h2>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-        </div>
-        <div>
-          <img src={icon_9} alt='Alt text for embed'/>
-          <h2>Risk Management</h2>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-        </div>
+        {features.map((feature, index) => (
+                <FeaturesSectionBox key={index} src={feature.src} title={feature.title} description={feature.description} />
+          ))}
       </div>
     </div>
   </section>

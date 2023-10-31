@@ -38,7 +38,7 @@ const ProjectCaseSection = () => {
         </div>
 
         <div className="center-content">
-          <a className="btn-black" href="projects.html">All Recent Projects<i className="fa-solid fa-arrow-up-right"></i></a>
+          <Link className="btn-black" to="projects.html">All Recent Projects<i className="fa-solid fa-arrow-up-right"></i></Link>
         </div>
 
       </div>

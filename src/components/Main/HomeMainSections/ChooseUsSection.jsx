@@ -9,7 +9,11 @@ import image_7 from '../../../assets/images/image7.png'
 import './ChooseUsSection.css'
 import ChooseUseBox from '../../Generics/MainGenerics/ChooseUseBox'
 
+
+
 const ChooseUsSection = () => {
+
+
   return (
     <>
     <section className="choose-us-section">

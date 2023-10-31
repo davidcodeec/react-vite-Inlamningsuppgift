@@ -1,81 +1,89 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../HomeMainSections/ArticleNewsSection.css'
-import image_12 from '@images/image12.png'
-import image_13 from '@images/image13.png'
-import image_14 from '@images/image14.png'
+import SectionTitleBox from '../../Generics/MainGenerics/SectionTitleBox'
+import { useState, useEffect } from 'react';
+import ArticleNewsSectionBox from '../../Generics/MainGenerics/ArticleNewsSectionBox'
 
 const ArticleNewsSection = () => {
+
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+
+      getThreeArticles()
+
+      const interval = setInterval(() => {
+        getThreeArticles()
+        console.log("Articles fetched")
+      }, 5000)
+
+      return () => clearInterval(interval)
+
+  }, [])
+
+
+  const getThreeArticles = async () => {
+      try {
+        const result = await fetch('')
+        const data = await result.json()
+        const firstThreeArticles = data.slice(0, 3); // Get the first three articles
+        setArticles(firstThreeArticles); // This set only the first three articles
+        console.log('Fetched articles:', firstThreeArticles);
+
+    } catch(error){
+          console.log(error)
+      }
+    
+  } 
+
+
+
   return (
     <>
-    <section className="article-news-section">
-    <div className="container">
-
-      <div className="section-title-button">
-
-
-        <div className="section-title">
-          <p>Article & News</p>
-          <h2>Get Every Single Articles & News</h2>
-        </div>
-
-        <div className="center-content">
-          <button className="btn-yellow">Browse Articles<i className="fa-solid fa-arrow-up-right"></i></button>
-        </div>
-
-      </div>
-
-    
-      <div className="image-spacing">
-        <Link className="text-decoration-none" to="news_details.html">
-          <div className="image-spacing-text">
-            <div className="date">
-              <h3>25</h3>
-              <p>Mar</p>
+      <section className="article-news-section">
+          <div className="container">
+            <div className="section-title-button">
+              <SectionTitleBox title="Article & News" description="Get Every Single Articles & News" />
+              <div className="center-content">
+                <button className="btn-yellow">
+                  Browse Articles<i className="fa-solid fa-arrow-up-right"></i>
+                </button>
+              </div>
             </div>
-            <img src={image_12} alt="Woman Standing"/>
-            <p>Business</p>
-            <h3>How To Use Digitalization In The Classroom</h3>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero.</p>
+
+            <div className="image-spacing">
+              <Link className="text-decoration-none" to="news_details.html">
+                {articles.map((article) => (
+                  <div key={article.id} className="image-spacing-text">
+                    <div className="date">
+                      <h3>{article.day}</h3>
+                      <p>{article.month}</p>
+                    </div>
+                    <img src={article.imageUrl} alt={article.title} />
+                    <div className="article-details">
+                      <p>{article.title}</p>
+                      <h3>{article.category}</h3>
+                      <p>{article.content}</p>
+                      <p>{article.author}</p>
+                    </div>
+                  </div>
+                ))}
+              </Link>
+            </div>
+
+
+            <div className="circle-boxes">
+              <div className="circles"></div>
+              <div className="active circles"></div>
+              <div className="circles"></div>
+              <div className="circles"></div>
+              <div className="circles"></div>
+            </div>
           </div>
-        </Link>
+</section>
 
-        <div className="image-spacing-text">
-          <div className="date">
-            <h3>17</h3>
-            <p>Mar</p>
-          </div>
-          <img src={image_13} alt="Man Standing"/>
-          <p>Business</p>
-          <h3>How To Implement Chat GPT In Your Projects</h3>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero.</p>
-        </div>
-
-        <div className="image-spacing-text">
-          <div className="date">
-            <h3>13</h3>
-            <p>Mar</p>
-          </div>
-          <img src={image_14} alt="Woman close to the window"/>
-          <p>Business</p>
-          <h3>The Guide To Support Modern CSS Design</h3>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero.</p>
-        </div>
-
-      </div>
-
-      <div className="circle-boxes">
-        <div className="circles"></div>
-        <div className="active circles"></div>
-        <div className="circles"></div>
-        <div className="circles"></div>
-        <div className="circles"></div>
-      </div>
-
-    </div>
-
-  </section>
-  </>
+    </>
 
   )
 }

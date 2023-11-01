@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import '../HomeMainSections/ArticleNewsSection.css'
 import SectionTitleBox from '../../Generics/MainGenerics/SectionTitleBox'
 import { useState, useEffect } from 'react';
@@ -7,6 +6,7 @@ import ArticleNewsSectionBox from '../../Generics/MainGenerics/ArticleNewsSectio
 import image_12 from '../../../assets/images/image12.png'
 import image_13 from '../../../assets/images/image13.png'
 import image_14 from '../../../assets/images/image14.png'
+import Button from '../../Generics/Button';
 
 const ArticleNewsSection = () => {
 
@@ -33,7 +33,7 @@ const ArticleNewsSection = () => {
               <SectionTitleBox title="Article & News" description="Get Every Single Articles & News" />
 
               <div className="center-content">
-                <button className="btn-yellow">Browse Articles<i className="fa-solid fa-arrow-up-right"></i></button>
+                <Button type="yellow" title="Browse Articles" url="articles" />
               </div>
 
             </div>

@@ -1,13 +1,13 @@
 import React from 'react'
 import NewsContactSection from './NewsContactSection'
-import ArticleNewsSection from './ArticleNewsSection'
+import ArticleNewsMainSection from './ArticleNewsMainSection'
 import NewsNewsLetterSection from './NewsNewsLetterSection'
 
 const NewsMainSection = () => {
   return (
     <>
         <NewsContactSection/>
-       <ArticleNewsSection/>
+       <ArticleNewsMainSection/>
       <NewsNewsLetterSection/>
     </>
   )

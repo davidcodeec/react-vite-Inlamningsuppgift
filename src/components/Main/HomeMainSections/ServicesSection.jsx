@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './ServicesSection.css';
 import { useState, useEffect } from 'react';
 import ServicesSectionBox from '../../Generics/MainGenerics/ServicesSectionBox';
+import Button from '../../Generics/Button';
+import SectionTitle from '../../Generics/MainGenerics/SectionTitleBox';
 
 const ServicesSection = () => {
   const [services, setServices] = useState([]);
@@ -21,17 +22,14 @@ const ServicesSection = () => {
   return (
     <section className="services-section">
       <div className="container">
-        <div className="section-title">
-          <p>Our Services</p>
-          <h2>We Provide The Best Service For Consulting</h2>
-        </div>
+        <SectionTitle title="Our Services" description="We Provide The Best Service For Consulting" />
         <div className='services-cards'>
           <div className="services-box-button services-section-box">
             {services.map((service, index) => (
               <ServicesSectionBox key={index} title={service.title} description={service.description} />
             ))}
             <div className="center-content">
-              <Link className="btn-black" to="projects.html">Browse Services<i className="fa-solid fa-arrow-up-right"></i></Link>
+              <Button type="black" title="Browse Services" url="services" /> 
             </div>
           </div>
         </div>

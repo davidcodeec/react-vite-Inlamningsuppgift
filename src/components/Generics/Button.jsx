@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 
 // You can declare a function containing the parameters text and url which is used in ShowcaseSection.js or in general
@@ -21,10 +22,10 @@ const Button = ({type, title, url}) => {
   }
 
   return (
-    <a className={buttonClasssName()} href={url}>
+    <Link className={buttonClasssName()} to={url}>
         {title}
     <i className="fa-solid fa-arrow-up-right"></i>
-    </a>
+    </Link>
   )
 }
 

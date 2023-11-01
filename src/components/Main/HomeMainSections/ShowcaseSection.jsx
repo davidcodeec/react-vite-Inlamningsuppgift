@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import '../HomeMainSections/ShowcaseSection.css'
 import background_lines from '../../../assets/images/icon14.svg'
 import man_in_suito from '../../../assets/images/image.png'
+import Button from '../../Generics/Button'
 
 const ShowcaseSection = () => {
   return (
@@ -13,8 +13,8 @@ const ShowcaseSection = () => {
         <div className="content">
           <h1>We provide The Best business solutions</h1>
           <p>Establish your vision and value proposition and turn them into testable prototypes.</p>
-          <a className="btn-yellow" href="consulting.html">Get Consulting<i className="fa-solid fa-arrow-up-right"></i></a>
-          <a className="btn-transparent" href="services.html">Learn More<i className="fa-solid fa-arrow-up-right"></i></a>
+          <Button type="yellow" title="Get Consulting" url="services" /> 
+          <Button type="transparent" title="Learn More" url="services" /> 
         </div>
         <img src={man_in_suito} alt="Image of a man with a suite with a tablet"/>
       </div>

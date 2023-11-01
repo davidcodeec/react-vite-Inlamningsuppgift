@@ -7,6 +7,7 @@ import icon_9 from '../../../assets/images/icon9.svg'
 import '../HomeMainSections/FeaturesSection.css'
 import { useState, useEffect } from 'react';
 import FeaturesSectionBox from '../../Generics/MainGenerics/FeaturesSectionBox'
+import Button from '../../Generics/Button'
 
 
 const FeaturesSection = () => {
@@ -31,7 +32,7 @@ const FeaturesSection = () => {
       <div className="content">
         <h4>Features</h4>
         <p>Our Accounting is trusted by thousand of companies</p>
-        <Link className="btn-yellow" to="about.html">Learn More<i className="fa-solid fa-arrow-up-right"></i></Link>
+        <Button type="yellow" title="Learn More" url="learnmore" />
       </div>
 
       <div className="container content-items">

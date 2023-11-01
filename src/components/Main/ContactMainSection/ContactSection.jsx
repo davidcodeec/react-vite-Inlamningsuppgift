@@ -5,10 +5,10 @@ import { NavLink } from 'react-router-dom'
 const ContactSection = () => {
   return (
     <>
-         <section class="contact-section">
+         <section className="contact-section">
 
-            <div class="container">
-                <div class="content">
+            <div className="container">
+                <div className="content">
                     <nav>
                         <NavLink to="/">Home</NavLink>
                         <NavLink to="/contacts">Contacts</NavLink>

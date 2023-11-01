@@ -13,7 +13,7 @@ const FooterText = () => {
             
             <FooterTextBox title ="Resources" link_1="Free eBooks" link_2="Development Tutorial" link_3="How to - Blog" link_4="Youtube Playlist"/>
 
-            <div class="footer-text-column">
+            <div className="footer-text-column">
               <h3>Link</h3>
               <Link to="">Free eBooks</Link>
               <Link to="">Development Tutorial</Link>

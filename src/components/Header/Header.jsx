@@ -14,7 +14,7 @@ const Header = () => {
                 <Menu />
                 <SocialMedia />
                 <MainMenu />
-                <Button type="login" title="Login" url="/login.html" />
+                <Button type="yellow login" title="Login" url="login" />
             </div>
         </header>
     );

@@ -8,33 +8,48 @@ import image_11 from '../../../assets/images/Image11.png'
 import eclipse_1 from '../../../assets/images/Ellipse1.png'
 import eclipse_2 from '../../../assets/images/Ellipse2.png'
 import eclipse_3 from '../../../assets/images/Ellipse3.png'
+import { useState, useEffect } from 'react';
+import ImagesBox from '../../Generics/MainGenerics/ImagesBox'
+import Button from '../../Generics/Button'
+import SectionTitle from '../../Generics/MainGenerics/SectionTitleBox'
 
 
 const MeetOurSection = () => {
+
+  const [meetOurSections, setMeetOurSection] = useState([]);
+
+  useEffect(() => {
+    const meetOurSectionList = [
+      { src:image_8, alt:"" },
+      { src:image_9, alt:"" },
+      { src:image_10, alt:"" },
+      { src:image_11, alt:"" },
+    ];
+    
+    setMeetOurSection(meetOurSectionList);
+
+  }, []);
+
+
   return (
     <section className="meet-our-section">
       <div className="container">
 
         <div className="section-title-button">
 
-
-          <div className="section-title">
-            <p>Meet Our Team</p>
-            <h2>Experience Team Members</h2>
-          </div>
+          <SectionTitle title="Meet Our Team" description="Experience Team Members" />
 
           <div className="center-content">
-            <Link className="btn-yellow" to="projects.html">Browse Team<i className="fa-solid fa-arrow-up-right"></i></Link>
+            <Button type="yellow" title="Browse Team" url="projects" />
           </div>
 
         </div>
 
 
         <div className="image-spacing">
-          <img src={image_8} alt="Woman Standing"/>
-          <img src={image_9} alt="Man Standing"/>
-          <img src={image_10} alt="Woman close to the window"/>
-          <img src={image_11} alt="Man smiling"/>
+        {meetOurSections.map((meetOurSection, index) => (
+            <ImagesBox key={index} src={meetOurSection.src} alt={meetOurSection.title} />
+          ))}
         </div>
 
         <div className="circle-boxes">
@@ -106,8 +121,7 @@ const MeetOurSection = () => {
 
 
           <div className="center-content">
-            <button className="btn-yellow" href="projects.html">All Reviews<i
-                className="fa-solid fa-arrow-up-right"></i></button>
+             <Button type="yellow" title="All Reviews" url="reviews" /> 
           </div>
 
         </div>

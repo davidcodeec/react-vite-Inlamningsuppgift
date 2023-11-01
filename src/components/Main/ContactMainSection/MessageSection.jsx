@@ -4,30 +4,30 @@ import './MessageSection.css'
 const MessageSection = () => {
   return (
     <>
-        <section class="message-section">
+        <section className="message-section">
 
-            <div class="container">
-                <div class="content">
-                    <div class="message-items">
-                        <div class="message-text">
+            <div className="container">
+                <div className="content">
+                    <div className="message-items">
+                        <div className="message-text">
                             <h3>Leave us a message </h3>
                             <h3>for any information.</h3>
                         </div>
                         <div>
-                            <form class="message-btns">
-                                <div class="searchbox">
+                            <form className="message-btns">
+                                <div className="searchbox">
                                     <input type="text" name="name" value="" placeholder="Name*"/>
                                 </div>
 
-                                <div class="searchbox">
+                                <div className="searchbox">
                                     <input type="text" name="email" value="" placeholder="Email*"/>
                                 </div>
 
-                                <textarea class="message-textarea" name="message" id="" cols="30" rows="10"
+                                <textarea className="message-textarea" name="message" id="" cols="30" rows="10"
                                     placeholder="Your Message*"></textarea>
 
-                                <div class="center-content">
-                                    <a class="btn-yellow" href="">Send Message<i class="fa-solid fa-arrow-up-right"></i></a>
+                                <div className="center-content">
+                                    <a className="btn-yellow" href="">Send Message<i className="fa-solid fa-arrow-up-right"></i></a>
                                 </div>
 
                             </form>

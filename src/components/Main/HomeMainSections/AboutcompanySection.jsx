@@ -32,10 +32,10 @@ const AboutcompanySection = () => {
         </div>
 
         <div className="play-button-text">
-          <Link className="btn-yellow" to="consulting.html">Learn More<i className="fa-solid fa-arrow-up-right"></i></Link>
+          <Link className="btn-yellow" to="consulting">Learn More<i className="fa-solid fa-arrow-up-right"></i></Link>
 
           <div className="center-content">
-            <button className="btn-play"><i className="fa-solid fa-play"></i></button>
+            <Link className="btn-play" to="intro"><i className="fa-solid fa-play"></i></Link>
             <p>Intro Video</p>
           </div>
         </div>

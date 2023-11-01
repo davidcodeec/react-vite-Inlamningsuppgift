@@ -1,17 +1,6 @@
 import React from 'react'
 
-const ArticleNewsSectionBox = ({title,imageUrl,content,author, published, category}) => {
-
-   // Parse the published date string
-   const date = new Date(published);
-
-   // Format the day and month
-   const options = { day: 'numeric', month: 'short' };
-   const formattedDate = date.toLocaleDateString('en-US', options);
- 
-   const day = date.getDate();
-   const month = formattedDate.split(' ')[1];
-
+const ArticleNewsSectionBox = ({day,month,src,alt,title,description,content}) => {
 
   return (
     <>
@@ -20,11 +9,10 @@ const ArticleNewsSectionBox = ({title,imageUrl,content,author, published, catego
               <h3>{day}</h3>
               <p>{month}</p>
             </div>
-            <img src={imageUrl} alt=""/>
+            <img src={src} alt={alt}/>
             <p>{title}</p>
-            <h3>{category}</h3>
+            <h3>{description}</h3>
             <p>{content}</p>
-            <p>{author}</p>
           </div>
     </>
   )

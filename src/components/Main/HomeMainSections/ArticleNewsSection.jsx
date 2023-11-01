@@ -4,73 +4,57 @@ import '../HomeMainSections/ArticleNewsSection.css'
 import SectionTitleBox from '../../Generics/MainGenerics/SectionTitleBox'
 import { useState, useEffect } from 'react';
 import ArticleNewsSectionBox from '../../Generics/MainGenerics/ArticleNewsSectionBox'
+import image_12 from '../../../assets/images/image12.png'
+import image_13 from '../../../assets/images/image13.png'
+import image_14 from '../../../assets/images/image14.png'
 
 const ArticleNewsSection = () => {
 
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-
-      getThreeArticles()
-
-      const interval = setInterval(() => {
-        getThreeArticles()
-        console.log("Articles fetched")
-      }, 5000)
-
-      return () => clearInterval(interval)
-
-  }, [])
-
-
-  const getThreeArticles = async () => {
-      try {
-        const result = await fetch('')
-        const data = await result.json()
-        const firstThreeArticles = data.slice(0, 3); // Get the first three articles
-        setArticles(firstThreeArticles); // This set only the first three articles
-        console.log('Fetched articles:', firstThreeArticles);
-
-    } catch(error){
-          console.log(error)
-      }
+    const articlesList = [
+      { day:"25", month:"Mar", src:image_12, title: "Business", description: "How To Use Digitalization In The Classroom",content:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero." },
+      { day:"17", month:"Mar", src:image_13, title: "Business", description: "How To Implement Chat GPT In Your Projects",content:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero."  },
+      { day:"13", month:"Mar", src:image_14, title: "Business", description: "The Guide To Support Modern CSS Design",content:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero."  },
+    ];
     
-  } 
-
+    setArticles(articlesList);
+  }, []);
 
 
   return (
     <>
       <section className="article-news-section">
           <div className="container">
+
             <div className="section-title-button">
+
               <SectionTitleBox title="Article & News" description="Get Every Single Articles & News" />
+
               <div className="center-content">
-                <button className="btn-yellow">
-                  Browse Articles<i className="fa-solid fa-arrow-up-right"></i>
-                </button>
+                <button className="btn-yellow">Browse Articles<i className="fa-solid fa-arrow-up-right"></i></button>
               </div>
+
             </div>
 
+
             <div className="image-spacing">
-              <Link className="text-decoration-none" to="news_details.html">
-                {articles.map((article) => (
-                  <div key={article.id} className="image-spacing-text">
-                    <div className="date">
-                      <h3>{article.day}</h3>
-                      <p>{article.month}</p>
-                    </div>
-                    <img src={article.imageUrl} alt={article.title} />
-                    <div className="article-details">
-                      <p>{article.title}</p>
-                      <h3>{article.category}</h3>
-                      <p>{article.content}</p>
-                      <p>{article.author}</p>
-                    </div>
-                  </div>
-                ))}
-              </Link>
+              {articles.map((article, index) => (
+                <ArticleNewsSectionBox
+                  key={index}
+                  day={article.day}
+                  month={article.month}
+                  src={article.src}
+                  alt={article.title}
+                  title={article.title}
+                  description={article.description}
+                  content={article.content}
+                 
+                />
+              ))}
             </div>
+
 
 
             <div className="circle-boxes">
@@ -80,9 +64,10 @@ const ArticleNewsSection = () => {
               <div className="circles"></div>
               <div className="circles"></div>
             </div>
-          </div>
-</section>
 
+          </div>
+
+        </section>
     </>
 
   )

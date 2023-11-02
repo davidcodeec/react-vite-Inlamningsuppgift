@@ -1,14 +1,24 @@
 import React from 'react'
+import '../../Main/NewsMainSection/ArticleNewsMainSection.css'
 
-const ArticleNewsMainSectionBox = ({title,category,content,published,imageUrl}) => {
+const ArticleNewsMainSectionBox = ({title,category,content,imageUrl,published}) => {
  
-    //Parse the published date string
-    const date = new Date(published);
-    const day = date.getDate();
-    const options = { month: 'short' };
-    const month = date.toLocaleDateString('en-US', options);
+
+    function formatDate(dateString) {  
+      
+      const options = { day: 'numeric', month: 'short' }; 
+      
+      const formattedDate = new Date(dateString).toLocaleDateString('en-GB', options);
+
+      return formattedDate;
+    
+    }
 
 
+    const formattedDate = formatDate(published);
+
+    // Split the formatted date into day and month
+    const [day, month] = formattedDate.split(' ');
  
  
     return (

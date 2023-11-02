@@ -1,19 +1,40 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
-const ArticleNewsSectionBox = ({day,month,src,alt,title,description,content}) => {
+
+const ArticleNewsSectionBox = ({id,title,category,content,imageUrl,published}) => {
+
+  function formatDate(dateString) {  
+      
+    const options = { day: 'numeric', month: 'short' }; 
+    
+    const formattedDate = new Date(dateString).toLocaleDateString('en-GB', options);
+
+    return formattedDate;
+  
+  }
+
+
+  const formattedDate = formatDate(published);
+
+  // Split the formatted date into day and month
+  const [day, month] = formattedDate.split(' ');
+
 
   return (
     <>
-         <div className="image-spacing-text">
-            <div className="date">
-              <h3>{day}</h3>
-              <p>{month}</p>
-            </div>
-            <img src={src} alt={alt}/>
-            <p>{title}</p>
-            <h3>{description}</h3>
-            <p>{content}</p>
+        <Link to={`/news/${id}`}>
+        <div className="image-spacing-text">
+          <div className="date">
+            <h3>{day}</h3>
+            <p>{month}</p>
           </div>
+          <img src={imageUrl} alt="" />
+          <p>{title}</p>
+          <h3>{category}</h3>
+          <p>{content}</p>
+        </div>
+      </Link>
     </>
   )
 }

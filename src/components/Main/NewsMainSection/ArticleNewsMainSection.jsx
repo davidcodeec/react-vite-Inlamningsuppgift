@@ -54,9 +54,8 @@ const ArticleNewsMainSection = () => {
         {articles.map((article) => (
           <Link to={`/news/${article.id}`} key={article.id}>
             <ArticleNewsMainSectionBox
-              day={article.day}
-              month={article.month}
-              src={article.imageUrl}
+              published={article.published}
+              imageUrl={article.imageUrl}
               title={article.title}
               category={article.category}
               content={article.content}

@@ -1,76 +1,84 @@
-import React from 'react'
-import '../HomeMainSections/ArticleNewsSection.css'
-import SectionTitleBox from '../../Generics/MainGenerics/SectionTitleBox'
-import { useState, useEffect } from 'react';
-import ArticleNewsSectionBox from '../../Generics/MainGenerics/ArticleNewsSectionBox'
-import image_12 from '../../../assets/images/image12.png'
-import image_13 from '../../../assets/images/image13.png'
-import image_14 from '../../../assets/images/image14.png'
+import React, { useState, useEffect } from 'react';
+import '../HomeMainSections/ArticleNewsSection.css';
+import SectionTitleBox from '../../Generics/MainGenerics/SectionTitleBox';
+import ArticleNewsSectionBox from '../../Generics/MainGenerics/ArticleNewsSectionBox';
 import Button from '../../Generics/Button';
 
 const ArticleNewsSection = () => {
+  const [articles, setArticles] = useState([]); // State variable to store articles
 
-  const [articles, setArticles] = useState([]);
+  const articleIdsToFetch = [
+    "cb24396b-ae21-4c34-a267-d0cd0600aa6d",
+    "ef44d5ef-7c50-4fbe-90a2-d1e0a498d9b5",
+    "228c829d-4f66-431f-bb20-1b3aed2869b6",
+  ];
 
+  const fetchArticles = async (articleId) => {
+    try {
+      if (articleId !== undefined) {
+        const response = await fetch(`https://win23-assignment.azurewebsites.net/api/articles/${articleId}`);
+        if (response.status === 200) {
+          const data = await response.json();
+          return data;
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  // Use the useEffect hook to fetch data when the component mounts
   useEffect(() => {
-    const articlesList = [
-      { day:"25", month:"Mar", src:image_12, title: "Business", description: "How To Use Digitalization In The Classroom",content:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero." },
-      { day:"17", month:"Mar", src:image_13, title: "Business", description: "How To Implement Chat GPT In Your Projects",content:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero."  },
-      { day:"13", month:"Mar", src:image_14, title: "Business", description: "The Guide To Support Modern CSS Design",content:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero."  },
-    ];
-    
-    setArticles(articlesList);
-  }, []);
+    const fetchAllArticles = async () => {
+      const fetchedArticles = [];
 
+      for (const articleId of articleIdsToFetch) {
+        const article = await fetchArticles(articleId);
+        if (article) {
+          fetchedArticles.push(article);
+        }
+      }
+
+      setArticles(fetchedArticles);
+    };
+
+    fetchAllArticles();
+  }, []); // Empty dependency array to fetch articles only once on component mount
 
   return (
     <>
       <section className="article-news-section">
-          <div className="container">
-
-            <div className="section-title-button">
-
-              <SectionTitleBox title="Article & News" description="Get Every Single Articles & News" />
-
-              <div className="center-content">
-                <Button type="yellow" title="Browse Articles" url="articles" />
-              </div>
-
+        <div className="container">
+          <div className="section-title-button">
+            <SectionTitleBox title="Article & News" description="Get Every Single Articles & News" />
+            <div className="center-content">
+              <Button type="yellow" title="Browse Articles" url="articles" />
             </div>
-
-
-            <div className="image-spacing">
-              {articles.map((article, index) => (
-                <ArticleNewsSectionBox
-                  key={index}
-                  day={article.day}
-                  month={article.month}
-                  src={article.src}
-                  alt={article.title}
-                  title={article.title}
-                  description={article.description}
-                  content={article.content}
-                 
-                />
-              ))}
-            </div>
-
-
-
-            <div className="circle-boxes">
-              <div className="circles"></div>
-              <div className="active circles"></div>
-              <div className="circles"></div>
-              <div className="circles"></div>
-              <div className="circles"></div>
-            </div>
-
           </div>
-
-        </section>
+          <div className="image-spacing">
+            {articles.map((article, index) => (
+              <ArticleNewsSectionBox
+                key={index}
+                id={article.id}
+                published={article.published}
+                imageUrl={article.imageUrl}
+                title={article.title}
+                category={article.category}
+                content={article.content}
+              />
+            ))}
+          </div>
+          <div className="circle-boxes">
+            <div className="circles"></div>
+            <div className="active circles"></div>
+            <div className="circles"></div>
+            <div className="circles"></div>
+            <div className="circles"></div>
+          </div>
+        </div>
+      </section>
     </>
+  );
+};
 
-  )
-}
-
-export default ArticleNewsSection
+export default ArticleNewsSection;

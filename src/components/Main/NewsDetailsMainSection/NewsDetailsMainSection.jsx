@@ -65,7 +65,7 @@ const NewsDetailsMainSection = () => {
 
           const additionalArticlesData = await fetchAdditionalArticles(additionalArticleIds);
 
-          console.log('Additional articles:', additionalArticlesData); // 
+         // console.log('Additional articles:', additionalArticlesData); // 
           // Set the primary article
           setArticle(primaryArticle);
 

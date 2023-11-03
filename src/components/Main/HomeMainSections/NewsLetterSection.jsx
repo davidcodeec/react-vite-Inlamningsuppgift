@@ -12,7 +12,7 @@ const NewsLetterSection = () => {
         <h2>Get News Updates By Signup</h2>
         <form>
           <input type="text" name="" value="" placeholder="username@domain.com"/>
-          <Button type="yellow" title="Subscribe" url="subscribe" /> 
+          <Button type="yellow" title="Subscribe" url="" /> 
         </form>
       </div>
     </section>

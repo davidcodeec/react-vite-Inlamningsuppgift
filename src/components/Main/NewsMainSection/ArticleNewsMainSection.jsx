@@ -51,19 +51,22 @@ const ArticleNewsMainSection = () => {
         </div>
 
         <div className="image-spacing">
-        {articles.map((article) => (
-          <Link to={`/news/${article.id}`} key={article.id}>
-            <ArticleNewsMainSectionBox
-              published={article.published}
-              imageUrl={article.imageUrl}
-              title={article.title}
-              category={article.category}
-              content={article.content}
-            />
-          </Link>
-        ))}
-
-            </div>
+          <div className="row">
+            {articles.map((article, index) => (
+              <div key={article.id} className="col-md-4 mb-4">
+                <Link to={`/news/${article.id}`}>
+                  <ArticleNewsMainSectionBox
+                    published={article.published}
+                    imageUrl={article.imageUrl}
+                    title={article.title}
+                    category={article.category}
+                    content={article.content}
+                  />
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* Navigation buttons */}
         <div className="number-boxes">

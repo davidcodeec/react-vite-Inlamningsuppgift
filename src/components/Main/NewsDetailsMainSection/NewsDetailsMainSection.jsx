@@ -1,45 +1,88 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
 import './NewsDetailsMainSection.css'
-import image_12 from '../../../assets/images/image12.png'
-import image_13 from '../../../assets/images/image13.png'
-import image_14 from '../../../assets/images/image14.png'
+import SectionTitleBox from '../../Generics/MainGenerics/SectionTitleBox';
+import ArticleNewsSectionBox from '../../Generics/MainGenerics/ArticleNewsSectionBox';
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import Button from '../../Generics/Button';
 
 
 
 const NewsDetailsMainSection = () => {
 
-    const [article, setArticles] = useState([]); // State variable to store articles
-    const {id} = useParams()
+    const { id } = useParams(); // Get the id from the URL
+    const [article, setArticle] = useState(null); // State variable to store the single article
+    const [additionalArticles, setAdditionalArticles] = useState([]); // State variable to store additional articles
 
-    const fetchArticles = async () => {
-        try {
-          if (id !== undefined) {
-            const result = await fetch(`https://win23-assignment.azurewebsites.net/api/articles/${id}`);
-            if (result.status === 200) {
-              const data = await result.json();
-              setArticles(data);
-            }
+    const fetchArticle = async (articleId) => {
+      try {
+        if (articleId !== undefined) {
+          const response = await fetch(`https://win23-assignment.azurewebsites.net/api/articles/${articleId}`);
+          if (response.status === 200) {
+            const data = await response.json();
+            return data;
+          } else {
+            //console.error(`Error fetching article with ID ${articleId}: HTTP status ${response.status}`);
           }
-        } catch (error) {
-          console.error('Error fetching data:', error);
         }
-      };
+      } catch (error) {
+        //console.error(`Error fetching article with ID ${articleId}:`, error);
+      }
+    };
+    
+  
+
+  const fetchAdditionalArticles = async (additionalIds) => {
+    const additionalArticlesData = [];
+  
+    for (const articleId of additionalIds) {
+      //console.log(`Fetching additional article with ID: ${articleId}`);
+      const article = await fetchArticle(articleId);
+      if (article) {
+        //console.log(`Fetched additional article data for ID ${articleId}`);
+        additionalArticlesData.push(article);
+      } else {
+       // console.error(`Failed to fetch additional article with ID: ${articleId}`);
+      }
+    }
+  
+    return additionalArticlesData;
+  };
+  
       
   
-    // Use the useEffect hook to fetch data when the component mounts
+  // Use the useEffect hook to fetch data when the component mounts
     useEffect(() => {
-      fetchArticles();
-    }, []);
+      const fetchArticleData = async () => {
+        if (id) {
+          const primaryArticle = await fetchArticle(id);
+          const additionalArticleIds = [
+            "cb24396b-ae21-4c34-a267-d0cd0600aa6d",
+            "ef44d5ef-7c50-4fbe-90a2-d1e0a498d9b5",
+            "228c829d-4f66-431f-bb20-1b3aed2869b6",
+          ];
 
+          const additionalArticlesData = await fetchAdditionalArticles(additionalArticleIds);
+
+          console.log('Additional articles:', additionalArticlesData); // 
+          // Set the primary article
+          setArticle(primaryArticle);
+
+          // Set the additional articles
+          setAdditionalArticles(additionalArticlesData);
+        }
+      };
+
+      fetchArticleData();
+    }, [id]);
+      
 
   return (
     <>
 <section className="article-news-section">
     <div className="container">
-
+    {article ? (
       <div className="section-title">
         <h2>{article.title}</h2>
 
@@ -55,7 +98,9 @@ const NewsDetailsMainSection = () => {
           </div>
         </div>
       </div>
+       ) : null}
 
+      {article ? (
       <div className="image-spacing">
         <div className="image-spacing-text">
           <img src={article.imageUrl} alt="Woman Standing"/>
@@ -158,6 +203,8 @@ const NewsDetailsMainSection = () => {
         </div>
       </div>
 
+
+      ) : null}
     </div>
 
 
@@ -169,61 +216,34 @@ const NewsDetailsMainSection = () => {
 
 
   <section className="article-news-section">
-  <div className="container">
-    <div className="section-title-button">
-      <div className="section-title">
-        <p>Article & News</p>
-        <h2>Get Every Single Articles & News</h2>
-      </div>
-      <div className="center-content">
-        <a className="btn-black" href="projects.html">Browse Articles<i className="fa-solid fa-arrow-up-right"></i></a>
-      </div>
-    </div>
-
-    <div className="image-spacing">
-      <div className="image-spacing-text">
-        <div className="date">
-          <h3>25</h3>
-          <p>Mar</p>
+      <div className="container">
+        <div className="section-title-button">
+          <SectionTitleBox title="Article & News" description="Get Every Single Articles & News" />
+          <div className="center-content">
+            <Button type="yellow" title="Browse Articles" url="articles" />
+          </div>
         </div>
-        <img src={image_12} alt="Woman Standing" />
-        <p>Business</p>
-        <h3>How To Use Digitalization In The Classroom</h3>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero.</p>
-      </div>
-
-      <div className="image-spacing-text">
-        <div className="date">
-          <h3>17</h3>
-          <p>Mar</p>
+        <div className="image-spacing">
+          {additionalArticles.map((additionalArticle, index) => (
+            <ArticleNewsSectionBox
+              key={index}
+              id={additionalArticle.id}
+              published={additionalArticle.published}
+              imageUrl={additionalArticle.imageUrl}
+              title={additionalArticle.title}
+              category={additionalArticle.category}
+              content={additionalArticle.content}
+            />
+          ))}
         </div>
-        <img src={image_13} alt="Man Standing" />
-        <p>Business</p>
-        <h3>How To Implement Chat GPT In Your Projects</h3>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero.</p>
-      </div>
-
-      <div className="image-spacing-text">
-        <div className="date">
-          <h3>13</h3>
-          <p>Mar</p>
+        <div className="circle-boxes">
+          {Array(5).fill().map((_, index) => (
+            <div className={`circles${index === 1 ? ' active' : ''}`} key={index}></div>
+          ))}
         </div>
-        <img src={image_14} alt="Woman close to the window" />
-        <p>Business</p>
-        <h3>The Guide To Support Modern CSS Design</h3>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero.</p>
       </div>
-    </div>
+    </section>
 
-    <div className="circle-boxes">
-      <div className="circles"></div>
-      <div className="active circles"></div>
-      <div className="circles"></div>
-      <div className="circles"></div>
-      <div className="circles"></div>
-    </div>
-  </div>
-</section>
 
 
 

@@ -220,7 +220,7 @@ const NewsDetailsMainSection = () => {
         <div className="section-title-button">
           <SectionTitleBox title="Article & News" description="Get Every Single Articles & News" />
           <div className="center-content">
-            <Button type="yellow" title="Browse Articles" url="articles" />
+            <Button type="yellow" title="Browse Articles" url="news" />
           </div>
         </div>
         <div className="image-spacing">

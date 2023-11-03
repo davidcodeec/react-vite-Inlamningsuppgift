@@ -7,7 +7,7 @@ import Button from '../../Generics/Button';
 const ArticleNewsSection = () => {
   const [articles, setArticles] = useState([]); // State variable to store articles
 
-  const articleIdsToFetch = [
+   const articleIdsToFetch = [
     "cb24396b-ae21-4c34-a267-d0cd0600aa6d",
     "ef44d5ef-7c50-4fbe-90a2-d1e0a498d9b5",
     "228c829d-4f66-431f-bb20-1b3aed2869b6",
@@ -77,8 +77,10 @@ const ArticleNewsSection = () => {
           </div>
         </div>
       </section>
+
     </>
   );
 };
+
 
 export default ArticleNewsSection;

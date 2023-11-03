@@ -52,7 +52,7 @@ const ArticleNewsMainSection = () => {
 
         <div className="image-spacing">
           <div className="row">
-            {articles.map((article, index) => (
+            {articles.map((article) => (
               <div key={article.id} className="col-md-4 mb-4">
                 <Link to={`/news/${article.id}`}>
                   <ArticleNewsMainSectionBox

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../HomeMainSections/ArticleNewsSection.css';
+import './ArticleNewsSection.css';
 import SectionTitleBox from '../../Generics/MainGenerics/SectionTitleBox';
 import ArticleNewsSectionBox from '../../Generics/MainGenerics/ArticleNewsSectionBox';
 import Button from '../../Generics/Button';

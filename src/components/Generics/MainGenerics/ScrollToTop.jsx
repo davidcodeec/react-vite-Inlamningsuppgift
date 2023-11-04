@@ -13,11 +13,19 @@ const ScrollToTop = () => {
 
     if (toGoTop) {
       const toggleButton = () => {
-        if (window.scrollY > 100) {
+        if (window.scrollY > 60) {
           toGoTop.classList.remove('d-none'); // Show the button
         } else {
           toGoTop.classList.add('d-none'); // Hide the button
         }
+      };
+
+      // Scroll to top function
+      const scrollToTop = () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
       };
 
       toggleButton(); // Call it to set the initial button state
@@ -39,3 +47,4 @@ const ScrollToTop = () => {
 };
 
 export default ScrollToTop;
+

@@ -9,16 +9,13 @@ import ProjectCaseSection from './HomeMainSections/ProjectCaseSection'
 import MeetOurSection from './HomeMainSections/MeetOurSection'
 import ArticleNewsSection from './HomeMainSections/ArticleNewsSection'
 import NewsLetterSection from './HomeMainSections/NewsLetterSection'
-import AutoScrollToTop from '../Generics/MainGenerics/AutoScrollToTop';
-import ScrollToTop from '../Generics/MainGenerics/ScrollToTop';
-import '../../../index.css'; 
 
 
 const Main = () => {
  
   return (
     <main>
-      <AutoScrollToTop/>
+      
       <ShowcaseSection/>
       <LogosSection/>
       <FeaturesSection/>
@@ -29,7 +26,7 @@ const Main = () => {
       <MeetOurSection/>
       <ArticleNewsSection/>
       <NewsLetterSection/>
-      <ScrollToTop/>
+    
     </main>
     
   )

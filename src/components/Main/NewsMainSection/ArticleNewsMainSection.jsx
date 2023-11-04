@@ -54,7 +54,7 @@ const ArticleNewsMainSection = () => {
           <div className="row">
             {articles.map((article) => (
               <div key={article.id} className="col-md-4 mb-4">
-                <Link to={`/news/${article.id}`}>
+                <Link to={`/news/${article.id}`} className="text-decoration-none">
                   <ArticleNewsMainSectionBox
                     published={article.published}
                     imageUrl={article.imageUrl}

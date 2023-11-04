@@ -5,16 +5,22 @@ import SocialMedia from './MainHeaderMenu/SocialMedia';
 import MainMenu from './MainHeaderMenu/MainMenu';
 import Button from '../Generics/Button';
 import './Header.css'; // Import the CSS file
+import { useState } from 'react';
 
 const Header = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+      setMenuOpen(!menuOpen);
+    };
     return (
         <header className='header'>
             <div className='container'>
-                <Logo />
+                <Logo menuOpen={menuOpen} toggleMenu={toggleMenu} />
                 <Menu />
                 <SocialMedia />
                 <MainMenu />
-                <Button type="yellow login" title="Login" url="login" />
+                <Button type="login" title="Login" url="/login" />
             </div>
         </header>
     );

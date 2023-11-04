@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './NewsDetailsMainSection.css'
 import SectionTitleBox from '../../Generics/MainGenerics/SectionTitleBox';
 import ArticleNewsSectionBox from '../../Generics/MainGenerics/ArticleNewsSectionBox';
@@ -132,27 +132,27 @@ const NewsDetailsMainSection = () => {
 
           <div className="button-spacing">
             <div className="center-content">
-              <a className="btn-white" href="projects.html">Freelance</a>
+              <Link className="btn-white" href="projects.html">Freelance</Link>
             </div>
 
             <div className="center-content">
-              <a className="btn-white" href="projects.html">Freelance</a>
+              <Link className="btn-white" href="projects.html">Freelance</Link>
             </div>
 
             <div className="center-content">
-              <a className="btn-white" href="projects.html">Earning</a>
+              <Link className="btn-white" href="projects.html">Earning</Link>
             </div>
 
             <div className="center-content">
-              <a className="btn-white" href="projects.html">Design</a>
+              <Link className="btn-white" href="projects.html">Design</Link>
             </div>
 
             <div className="center-content">
-              <a className="btn-white" href="projects.html">Work</a>
+              <Link className="btn-white" href="projects.html">Work</Link>
             </div>
 
             <div className="center-content">
-              <a className="btn-white" href="projects.html">Marketing</a>
+              <Link className="btn-white" href="projects.html">Marketing</Link>
             </div>
           </div>
         </div>
@@ -188,9 +188,9 @@ const NewsDetailsMainSection = () => {
           </div>
 
           <div className="image-spacing-text2">
-            <a className="active" href="">
+            <NavLink href="">
               <h2 className="active">Categories</h2>
-            </a>
+            </NavLink>
             <h6>Technology <span>- 20 Posts</span></h6>
             <h6>Freelancing <span>- 07 Posts</span></h6>
             <h6>Writing <span>- 16 Posts</span></h6>
@@ -220,7 +220,7 @@ const NewsDetailsMainSection = () => {
         <div className="section-title-button">
           <SectionTitleBox title="Article & News" description="Get Every Single Articles & News" />
           <div className="center-content">
-            <Button type="yellow" title="Browse Articles" url="news" />
+           <Button type="yellow" title="Browse Articles" url="/news" />
           </div>
         </div>
         <div className="image-spacing">
@@ -238,7 +238,7 @@ const NewsDetailsMainSection = () => {
         </div>
         <div className="circle-boxes">
           {Array(5).fill().map((_, index) => (
-            <div className={`circles${index === 1 ? ' active' : ''}`} key={index}></div>
+            <div className={`circles${index === 0 ? ' active' : ''}`} key={index}></div>
           ))}
         </div>
       </div>

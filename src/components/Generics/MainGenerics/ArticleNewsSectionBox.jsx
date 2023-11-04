@@ -23,7 +23,7 @@ const ArticleNewsSectionBox = ({id,title,category,content,imageUrl,published}) =
 
   return (
     <>
-        <Link to={`/news/${id}`}>
+        <Link to={`/news/${id}`} className="text-decoration-none">
         <div className="image-spacing-text">
           <div className="date">
             <h3>{day}</h3>

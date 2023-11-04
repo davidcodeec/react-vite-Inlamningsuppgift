@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import '../HomeMainSections/NewsLetterSection.css'
 import icon_15 from '../../../assets/images/icon15.svg'
 import Button from '../../Generics/Button'
@@ -12,7 +11,7 @@ const NewsLetterSection = () => {
         <h2>Get News Updates By Signup</h2>
         <form>
           <input type="text" name="" value="" placeholder="username@domain.com"/>
-          <Button type="yellow" title="Subscribe" url="" /> 
+          <Button type="yellow" title="Subscribe" url="/subscribe" /> 
         </form>
       </div>
     </section>

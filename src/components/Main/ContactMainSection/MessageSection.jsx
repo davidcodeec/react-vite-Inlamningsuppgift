@@ -1,5 +1,6 @@
 import React from 'react'
 import './MessageSection.css'
+import { Link } from 'react-router-dom'
 
 const MessageSection = () => {
   return (
@@ -27,7 +28,7 @@ const MessageSection = () => {
                                     placeholder="Your Message*"></textarea>
 
                                 <div className="center-content">
-                                    <a className="btn-yellow" href="">Send Message<i className="fa-solid fa-arrow-up-right"></i></a>
+                                    <Link className="btn-yellow" to="">Send Message<i className="fa-solid fa-arrow-up-right"></i></Link>
                                 </div>
 
                             </form>

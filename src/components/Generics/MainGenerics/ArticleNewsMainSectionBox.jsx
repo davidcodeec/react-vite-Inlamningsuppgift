@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const ArticleNewsMainSectionBox = ({title,category,content,imageUrl,published}) => {
  
@@ -22,6 +23,7 @@ const ArticleNewsMainSectionBox = ({title,category,content,imageUrl,published}) 
  
     return (
     <>
+        
         <div className="image-spacing-text">
             <div className="date">
               <h3>{day}</h3>
@@ -32,6 +34,7 @@ const ArticleNewsMainSectionBox = ({title,category,content,imageUrl,published}) 
             <h3>{category}</h3>
             <p>{content}</p>
           </div>
+        
     </>
   )
 }

@@ -1,0 +1,89 @@
+/* Style for the button to toggle the menu */
+.menu-bars {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 999;
+}
+
+.show-menu-button {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 999;
+  background-color: #e7132c; /* Your button background color */
+  color: #fff; /* Your button text color */
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.show-menu-button i.fa-sharp.fa-solid.fa-bars {
+  background-color: white;
+  font-size: 24px;
+  width: 100%;
+  height: 100%;
+  font-size: 1.5rem;
+}
+
+/* Style for the fixed menu */
+/* Style for the fixed menu */
+.logo-main-menu {
+  position: fixed;
+  top: 0;
+  left: -100%; /* Initially hide the menu off the screen */
+  width: 100%; /* Full screen width */
+  height: 100%;
+  background-color: #000; /* Your menu background color */
+  color: #fff; /* Your menu text color */
+  transition: left 0.3s; /* Smooth animation */
+  z-index: 998;
+  overflow-y: auto; /* Enable scrolling if the content is too long */
+}
+
+/* Style for the links within the fixed menu */
+.logo-main-menu nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  background-color: transparent;
+}
+.logo-main-menu nav a {
+  text-decoration: none;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo-main-menu nav .active {
+  background-color: rgb(163, 156, 156);
+  width: 100%;
+  padding: 20px;
+}
+
+/* Show the menu when the class 'menu-open' is applied to it */
+.logo-main-menu.menu-open {
+  left: 0;
+}
+
+@media (min-width: 992px) {
+  .logo-main-menu {
+    display: none;
+  }
+}
+@media (min-width: 1200px) {
+  .logo-main-menu {
+    display: none;
+  }
+}
+@media (min-width: 1400px) {
+  .logo-main-menu {
+    display: none;
+  }
+}

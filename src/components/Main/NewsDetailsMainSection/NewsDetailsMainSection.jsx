@@ -11,72 +11,80 @@ import Button from '../../Generics/Button';
 
 const NewsDetailsMainSection = () => {
 
-    const { id } = useParams(); // Get the id from the URL
-    const [article, setArticle] = useState(null); // State variable to store the single article
-    const [additionalArticles, setAdditionalArticles] = useState([]); // State variable to store additional articles
+  const { id } = useParams();
+  const [article, setArticle] = useState(null);
+  const [additionalArticles, setAdditionalArticles] = useState([]);
+  const [currentGroup, setCurrentGroup] = useState(0);
 
-    const fetchArticle = async (articleId) => {
-      try {
-        if (articleId !== undefined) {
-          const response = await fetch(`https://win23-assignment.azurewebsites.net/api/articles/${articleId}`);
-          if (response.status === 200) {
-            const data = await response.json();
-            return data;
-          } else {
-            //console.error(`Error fetching article with ID ${articleId}: HTTP status ${response.status}`);
-          }
+  // Define the number of articles to show in each group
+  const articlesPerPage = 3;
+
+  const initialArticleIdsToFetch = [
+    "cb24396b-ae21-4c34-a267-d0cd0600aa6d",
+    "ef44d5ef-7c50-4fbe-90a2-d1e0a498d9b5",
+    "228c829d-4f66-431f-bb20-1b3aed2869b6",
+  ];
+
+  const fetchArticle = async (articleId) => {
+    try {
+      if (articleId !== undefined) {
+        const response = await fetch(`https://win23-assignment.azurewebsites.net/api/articles/${articleId}`);
+        if (response.status === 200) {
+          const data = await response.json();
+          return data;
+        } else {
+          console.error(`Error fetching article with ID ${articleId}: HTTP status ${response.status}`);
         }
-      } catch (error) {
-        //console.error(`Error fetching article with ID ${articleId}:`, error);
+      }
+    } catch (error) {
+      console.error(`Error fetching article with ID ${articleId}:`, error);
+    }
+  };
+
+  const fetchInitialArticles = async () => {
+    const initialArticles = await Promise.all(initialArticleIdsToFetch.map(fetchArticle));
+    return initialArticles;
+  };
+
+  const fetchAdditionalArticles = async () => {
+    const response = await fetch('https://win23-assignment.azurewebsites.net/api/articles');
+    if (response.status === 200) {
+      const data = await response.json();
+      return data.filter(article => !initialArticleIdsToFetch.includes(article.id));
+    } else {
+      console.error('Error fetching additional articles:', response.status);
+    }
+  };
+
+  const getPreviousGroup = () => {
+    setCurrentGroup(Math.max(currentGroup - 1, 0));
+  };
+
+  const getNextGroup = () => {
+    setCurrentGroup(Math.min(currentGroup + 1, Math.ceil(additionalArticles.length / articlesPerPage) - 1));
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (id) {
+        // Fetch the primary article
+        const primaryArticle = await fetchArticle(id);
+
+        // Fetch additional articles from the API
+        const initialArticles = await fetchInitialArticles();
+        const additionalArticlesData = await fetchAdditionalArticles();
+
+        // Set the primary article
+        setArticle(primaryArticle);
+
+        // Set the additional articles
+        setAdditionalArticles([...initialArticles, ...additionalArticlesData]);
       }
     };
-    
-  
 
-  const fetchAdditionalArticles = async (additionalIds) => {
-    const additionalArticlesData = [];
+    fetchData();
+  }, [id]);
   
-    for (const articleId of additionalIds) {
-      //console.log(`Fetching additional article with ID: ${articleId}`);
-      const article = await fetchArticle(articleId);
-      if (article) {
-        //console.log(`Fetched additional article data for ID ${articleId}`);
-        additionalArticlesData.push(article);
-      } else {
-       // console.error(`Failed to fetch additional article with ID: ${articleId}`);
-      }
-    }
-  
-    return additionalArticlesData;
-  };
-  
-      
-  
-  // Use the useEffect hook to fetch data when the component mounts
-    useEffect(() => {
-      const fetchArticleData = async () => {
-        if (id) {
-          const primaryArticle = await fetchArticle(id);
-          const additionalArticleIds = [
-            "cb24396b-ae21-4c34-a267-d0cd0600aa6d",
-            "ef44d5ef-7c50-4fbe-90a2-d1e0a498d9b5",
-            "228c829d-4f66-431f-bb20-1b3aed2869b6",
-          ];
-
-          const additionalArticlesData = await fetchAdditionalArticles(additionalArticleIds);
-
-         // console.log('Additional articles:', additionalArticlesData); // 
-          // Set the primary article
-          setArticle(primaryArticle);
-
-          // Set the additional articles
-          setAdditionalArticles(additionalArticlesData);
-        }
-      };
-
-      fetchArticleData();
-    }, [id]);
-      
 
   return (
     <>
@@ -132,27 +140,27 @@ const NewsDetailsMainSection = () => {
 
           <div className="button-spacing">
             <div className="center-content">
-              <Link className="btn-white" href="projects.html">Freelance</Link>
+              <Link className="btn-white" to="projects.html">Freelance</Link>
             </div>
 
             <div className="center-content">
-              <Link className="btn-white" href="projects.html">Freelance</Link>
+              <Link className="btn-white" to="projects.html">Freelance</Link>
             </div>
 
             <div className="center-content">
-              <Link className="btn-white" href="projects.html">Earning</Link>
+              <Link className="btn-white" to="projects.html">Earning</Link>
             </div>
 
             <div className="center-content">
-              <Link className="btn-white" href="projects.html">Design</Link>
+              <Link className="btn-white" to="projects.html">Design</Link>
             </div>
 
             <div className="center-content">
-              <Link className="btn-white" href="projects.html">Work</Link>
+              <Link className="btn-white" to="projects.html">Work</Link>
             </div>
 
             <div className="center-content">
-              <Link className="btn-white" href="projects.html">Marketing</Link>
+              <Link className="btn-white" to="projects.html">Marketing</Link>
             </div>
           </div>
         </div>
@@ -188,7 +196,7 @@ const NewsDetailsMainSection = () => {
           </div>
 
           <div className="image-spacing-text2">
-            <NavLink href="">
+            <NavLink to="">
               <h2 className="active">Categories</h2>
             </NavLink>
             <h6>Technology <span>- 20 Posts</span></h6>
@@ -216,33 +224,46 @@ const NewsDetailsMainSection = () => {
 
 
   <section className="article-news-section">
-      <div className="container">
-        <div className="section-title-button">
-          <SectionTitleBox title="Article & News" description="Get Every Single Articles & News" />
-          <div className="center-content">
-           <Button type="yellow" title="Browse Articles" url="/news" />
+        <div className="container">
+          <div className="section-title-button">
+            <SectionTitleBox title="Article & News" description="Get Every Single Articles & News" />
+            <div className="center-content">
+              <Button type="yellow" title="Browse Articles" url="/news" />
+            </div>
+          </div>
+          <div className="image-spacing">
+            {additionalArticles
+              .slice(currentGroup * articlesPerPage, currentGroup * articlesPerPage + articlesPerPage)
+              .map((additionalArticle, index) => (
+                <ArticleNewsSectionBox
+                  key={index}
+                  id={additionalArticle.id}
+                  published={additionalArticle.published}
+                  imageUrl={additionalArticle.imageUrl}
+                  title={additionalArticle.title}
+                  category={additionalArticle.category}
+                  content={additionalArticle.content}
+                />
+              ))}
+          </div>
+          <div className="circle-boxes">
+            {additionalArticles.length > articlesPerPage && (
+              <>
+                <button onClick={getPreviousGroup} disabled={currentGroup === 0}>
+                  Previous
+                </button>
+                <button
+                  onClick={getNextGroup}
+                  disabled={currentGroup === Math.ceil(additionalArticles.length / articlesPerPage) - 1}
+                >
+                  Next
+                </button>
+              </>
+            )}
           </div>
         </div>
-        <div className="image-spacing">
-          {additionalArticles.map((additionalArticle, index) => (
-            <ArticleNewsSectionBox
-              key={index}
-              id={additionalArticle.id}
-              published={additionalArticle.published}
-              imageUrl={additionalArticle.imageUrl}
-              title={additionalArticle.title}
-              category={additionalArticle.category}
-              content={additionalArticle.content}
-            />
-          ))}
-        </div>
-        <div className="circle-boxes">
-          {Array(5).fill().map((_, index) => (
-            <div className={`circles${index === 0 ? ' active' : ''}`} key={index}></div>
-          ))}
-        </div>
-      </div>
-    </section>
+      </section>
+
 
 
 

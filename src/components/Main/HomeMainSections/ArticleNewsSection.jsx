@@ -6,44 +6,60 @@ import Button from '../../Generics/Button';
 
 const ArticleNewsSection = () => {
   const [articles, setArticles] = useState([]); // State variable to store articles
+  const [currentGroup, setCurrentGroup] = useState(0);
 
-   const articleIdsToFetch = [
+  // Define the initial articles to fetch
+  const initialArticleIdsToFetch = [
     "cb24396b-ae21-4c34-a267-d0cd0600aa6d",
     "ef44d5ef-7c50-4fbe-90a2-d1e0a498d9b5",
     "228c829d-4f66-431f-bb20-1b3aed2869b6",
   ];
 
-  const fetchArticles = async (articleId) => {
+  const fetchArticle = async (articleId) => {
     try {
-      if (articleId !== undefined) {
-        const response = await fetch(`https://win23-assignment.azurewebsites.net/api/articles/${articleId}`);
-        if (response.status === 200) {
-          const data = await response.json();
-          return data;
-        }
+      const response = await fetch(`https://win23-assignment.azurewebsites.net/api/articles/${articleId}`);
+      if (response.status === 200) {
+        const data = await response.json();
+        return data;
       }
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   };
 
-  // Use the useEffect hook to fetch data when the component mounts
+  const fetchInitialArticles = async () => {
+    const initialArticles = await Promise.all(initialArticleIdsToFetch.map(fetchArticle));
+    return initialArticles;
+  };
+
+  const fetchRemainingArticles = async () => {
+    const response = await fetch('https://win23-assignment.azurewebsites.net/api/articles');
+    if (response.status === 200) {
+      const data = await response.json();
+      return data.filter(article => !initialArticleIdsToFetch.includes(article.id));
+    }
+  };
+
   useEffect(() => {
-    const fetchAllArticles = async () => {
-      const fetchedArticles = [];
-
-      for (const articleId of articleIdsToFetch) {
-        const article = await fetchArticles(articleId);
-        if (article) {
-          fetchedArticles.push(article);
-        }
-      }
-
-      setArticles(fetchedArticles);
+    const fetchData = async () => {
+      const initialArticles = await fetchInitialArticles();
+      const remainingArticles = await fetchRemainingArticles();
+      const allArticles = [...initialArticles, ...remainingArticles];
+      setArticles(allArticles);
     };
 
-    fetchAllArticles();
-  }, []); // Empty dependency array to fetch articles only once on component mount
+    fetchData();
+  }, []);
+
+  const getNextGroup = () => {
+    const nextGroup = (currentGroup + 1) % Math.ceil(articles.length / 3);
+    setCurrentGroup(nextGroup);
+  };
+
+  const getPreviousGroup = () => {
+    const previousGroup = (currentGroup - 1 + Math.ceil(articles.length / 3)) % Math.ceil(articles.length / 3);
+    setCurrentGroup(previousGroup);
+  };
 
   return (
     <>
@@ -56,7 +72,7 @@ const ArticleNewsSection = () => {
             </div>
           </div>
           <div className="image-spacing">
-            {articles.map((article, index) => (
+            {articles.slice(currentGroup * 3, currentGroup * 3 + 3).map((article, index) => (
               <ArticleNewsSectionBox
                 key={index}
                 id={article.id}
@@ -69,18 +85,17 @@ const ArticleNewsSection = () => {
             ))}
           </div>
           <div className="circle-boxes">
-            <div className="circles"></div>
-            <div className="active circles"></div>
-            <div className="circles"></div>
-            <div className="circles"></div>
-            <div className="circles"></div>
+            {articles.length > 3 && (
+              <>
+                <button onClick={getPreviousGroup} disabled={currentGroup === 0}>Back</button>
+                <button onClick={getNextGroup} disabled={currentGroup === Math.ceil(articles.length / 3) - 1}>Next</button>
+              </>
+            )}
           </div>
         </div>
       </section>
-
     </>
   );
 };
-
 
 export default ArticleNewsSection;

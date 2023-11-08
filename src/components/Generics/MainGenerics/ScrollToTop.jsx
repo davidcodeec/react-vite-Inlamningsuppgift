@@ -1,6 +1,17 @@
 import React, { useEffect } from 'react';
 
 const ScrollToTop = () => {
+  const toggleButton = () => {
+    const toGoTop = document.querySelector('#goto-top');
+    if (toGoTop) {
+      if (window.scrollY > 60) {
+        toGoTop.classList.remove('d-none'); // Show the button
+      } else {
+        toGoTop.classList.add('d-none'); // Hide the button
+      }
+    }
+  };
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -9,34 +20,13 @@ const ScrollToTop = () => {
   };
 
   useEffect(() => {
-    const toGoTop = document.querySelector('#goto-top');
+    toggleButton(); // Call it to set the initial button state
 
-    if (toGoTop) {
-      const toggleButton = () => {
-        if (window.scrollY > 60) {
-          toGoTop.classList.remove('d-none'); // Show the button
-        } else {
-          toGoTop.classList.add('d-none'); // Hide the button
-        }
-      };
+    window.addEventListener('scroll', toggleButton);
 
-      // Scroll to top function
-      const scrollToTop = () => {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth',
-        });
-      };
-
-      toggleButton(); // Call it to set the initial button state
-
-      window.addEventListener('scroll', toggleButton);
-      toGoTop.addEventListener('click', scrollToTop);
-
-      return () => {
-        window.removeEventListener('scroll', toggleButton);
-      };
-    }
+    return () => {
+      window.removeEventListener('scroll', toggleButton);
+    };
   }, []);
 
   return (
@@ -47,4 +37,3 @@ const ScrollToTop = () => {
 };
 
 export default ScrollToTop;
-

@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import './ArticleNewsSection.css';
-import SectionTitleBox from '../../Generics/MainGenerics/SectionTitleBox';
-import ArticleNewsSectionBox from '../../Generics/MainGenerics/ArticleNewsSectionBox';
-import Button from '../../Generics/Button';
+import React, { useState, useEffect } from "react";
+import "./ArticleNewsSection.css";
+import SectionTitleBox from "../../Generics/MainGenerics/SectionTitleBox";
+import ArticleNewsSectionBox from "../../Generics/MainGenerics/ArticleNewsSectionBox";
+import Button from "../../Generics/Button";
+import { useArticleContext } from "../../../contexts/ArticleContext";
 
 const ArticleNewsSection = () => {
-  const [articles, setArticles] = useState([]); // State variable to store articles
-  const [currentGroup, setCurrentGroup] = useState(0);
+  const apiUrl = "https://win23-assignment.azurewebsites.net/api/articles";
+
+  // Using useContext and Provider
+  const { articles, setArticles, currentGroup, setCurrentGroup } =
+    useArticleContext();
 
   // Define the initial articles to fetch
   const initialArticleIdsToFetch = [
@@ -17,26 +21,30 @@ const ArticleNewsSection = () => {
 
   const fetchArticle = async (articleId) => {
     try {
-      const response = await fetch(`https://win23-assignment.azurewebsites.net/api/articles/${articleId}`);
+      const response = await fetch(`${apiUrl}/${articleId}`);
       if (response.status === 200) {
         const data = await response.json();
         return data;
       }
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error("Error fetching data:", error);
     }
   };
 
   const fetchInitialArticles = async () => {
-    const initialArticles = await Promise.all(initialArticleIdsToFetch.map(fetchArticle));
+    const initialArticles = await Promise.all(
+      initialArticleIdsToFetch.map(fetchArticle)
+    );
     return initialArticles;
   };
 
   const fetchRemainingArticles = async () => {
-    const response = await fetch('https://win23-assignment.azurewebsites.net/api/articles');
+    const response = await fetch(apiUrl);
     if (response.status === 200) {
       const data = await response.json();
-      return data.filter(article => !initialArticleIdsToFetch.includes(article.id));
+      return data.filter(
+        (article) => !initialArticleIdsToFetch.includes(article.id)
+      );
     }
   };
 
@@ -57,7 +65,9 @@ const ArticleNewsSection = () => {
   };
 
   const getPreviousGroup = () => {
-    const previousGroup = (currentGroup - 1 + Math.ceil(articles.length / 3)) % Math.ceil(articles.length / 3);
+    const previousGroup =
+      (currentGroup - 1 + Math.ceil(articles.length / 3)) %
+      Math.ceil(articles.length / 3);
     setCurrentGroup(previousGroup);
   };
 
@@ -66,29 +76,44 @@ const ArticleNewsSection = () => {
       <section className="article-news-section">
         <div className="container">
           <div className="section-title-button">
-            <SectionTitleBox title="Article & News" description="Get Every Single Articles & News" />
+            <SectionTitleBox
+              title="Article & News"
+              description="Get Every Single Articles & News"
+            />
             <div className="center-content">
               <Button type="yellow" title="Browse Articles" url="news" />
             </div>
           </div>
           <div className="image-spacing">
-            {articles.slice(currentGroup * 3, currentGroup * 3 + 3).map((article, index) => (
-              <ArticleNewsSectionBox
-                key={index}
-                id={article.id}
-                published={article.published}
-                imageUrl={article.imageUrl}
-                title={article.title}
-                category={article.category}
-                content={article.content}
-              />
-            ))}
+            {articles
+              .slice(currentGroup * 3, currentGroup * 3 + 3)
+              .map((article, index) => (
+                <ArticleNewsSectionBox
+                  key={index}
+                  id={article.id}
+                  published={article.published}
+                  imageUrl={article.imageUrl}
+                  title={article.title}
+                  category={article.category}
+                  content={article.content}
+                />
+              ))}
           </div>
           <div className="circle-boxes">
             {articles.length > 3 && (
               <>
-                <button onClick={getPreviousGroup} disabled={currentGroup === 0}>Back</button>
-                <button onClick={getNextGroup} disabled={currentGroup === Math.ceil(articles.length / 3) - 1}>Next</button>
+                <button
+                  onClick={getPreviousGroup}
+                  disabled={currentGroup === 0}
+                >
+                  Back
+                </button>
+                <button
+                  onClick={getNextGroup}
+                  disabled={currentGroup === Math.ceil(articles.length / 3) - 1}
+                >
+                  Next
+                </button>
               </>
             )}
           </div>

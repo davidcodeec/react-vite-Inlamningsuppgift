@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
-const ImagesBox = ({src,title}) => {
+const ImagesBox = ({ src, title }) => {
   return (
     <>
-        <img src={src} alt={title} /> 
+      <img src={src} alt={title} />
     </>
-  )
-}
+  );
+};
 
-export default ImagesBox
+export default ImagesBox;

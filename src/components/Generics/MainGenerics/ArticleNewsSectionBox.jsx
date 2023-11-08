@@ -1,29 +1,33 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
+const ArticleNewsSectionBox = ({
+  id,
+  title,
+  category,
+  content,
+  imageUrl,
+  published,
+}) => {
+  function formatDate(dateString) {
+    const options = { day: "numeric", month: "short" };
 
-const ArticleNewsSectionBox = ({id,title,category,content,imageUrl,published}) => {
-
-  function formatDate(dateString) {  
-      
-    const options = { day: 'numeric', month: 'short' }; 
-    
-    const formattedDate = new Date(dateString).toLocaleDateString('en-GB', options);
+    const formattedDate = new Date(dateString).toLocaleDateString(
+      "en-GB",
+      options
+    );
 
     return formattedDate;
-  
   }
-
 
   const formattedDate = formatDate(published);
 
   // Split the formatted date into day and month
-  const [day, month] = formattedDate.split(' ');
-
+  const [day, month] = formattedDate.split(" ");
 
   return (
     <>
-        <Link to={`/news/${id}`} className="text-decoration-none">
+      <Link to={`/news/${id}`} className="text-decoration-none">
         <div className="image-spacing-text">
           <div className="date">
             <h3>{day}</h3>
@@ -36,7 +40,7 @@ const ArticleNewsSectionBox = ({id,title,category,content,imageUrl,published}) =
         </div>
       </Link>
     </>
-  )
-}
+  );
+};
 
-export default ArticleNewsSectionBox
+export default ArticleNewsSectionBox;

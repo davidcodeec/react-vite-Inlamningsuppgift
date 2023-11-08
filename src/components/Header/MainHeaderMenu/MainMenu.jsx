@@ -1,6 +1,6 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom'; // Import the NavLink component from react-router-dom
-import '../../Header/Header.css';
+import React from "react";
+import { NavLink } from "react-router-dom"; // Import the NavLink component from react-router-dom
+import "../../Header/Header.css";
 
 const MainMenu = () => {
   return (
@@ -13,6 +13,6 @@ const MainMenu = () => {
       </nav>
     </div>
   );
-}
+};
 
 export default MainMenu;

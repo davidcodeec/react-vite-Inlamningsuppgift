@@ -1,44 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import ArticleNewsMainSectionBox from '../../Generics/MainGenerics/ArticleNewsMainSectionBox';
-import './ArticleNewsMainSection.css'
-import { Link } from 'react-router-dom';
-
-
-
+import React, { useState, useEffect } from "react";
+import ArticleNewsMainSectionBox from "../../Generics/MainGenerics/ArticleNewsMainSectionBox";
+import "./ArticleNewsMainSection.css";
+import { Link } from "react-router-dom";
+import { useArticleContext } from "../../../contexts/ArticleContext";
 
 const ArticleNewsMainSection = () => {
-  const [articles, setArticles] = useState([]);
+  const apiUrl = "https://win23-assignment.azurewebsites.net/api/articles";
 
-  
+  const { articles, setArticles } = useArticleContext();
+
   const fetchArticles = async () => {
     try {
-      const response = await fetch('https://win23-assignment.azurewebsites.net/api/articles');
+      const response = await fetch(apiUrl);
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error("Network response was not ok");
       }
       const data = await response.json();
-  
-    
-  
- 
+
       const articlesWithValidImages = data.map((article) => {
         const img = new Image();
         img.src = article.imageUrl;
         img.onerror = () => {
-          article.imageUrl = 'URL of placeholder image';
-        
+          article.imageUrl = "URL of placeholder image";
         };
         return article;
       });
-      
+
       setArticles(articlesWithValidImages);
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error("Error fetching data:", error);
     }
   };
-  
 
-  
   useEffect(() => {
     fetchArticles();
   }, []);
@@ -54,7 +47,10 @@ const ArticleNewsMainSection = () => {
           <div className="row">
             {articles.map((article) => (
               <div key={article.id} className="col-md-4 mb-4">
-                <Link to={`/news/${article.id}`} className="text-decoration-none">
+                <Link
+                  to={`/news/${article.id}`}
+                  className="text-decoration-none"
+                >
                   <ArticleNewsMainSectionBox
                     published={article.published}
                     imageUrl={article.imageUrl}

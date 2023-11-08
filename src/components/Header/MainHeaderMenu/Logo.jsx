@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import logo from '../../../../src/assets/images/Logo.svg';
-import { NavLink } from 'react-router-dom';
-import './Logo.css'
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import logo from "../../../../src/assets/images/Logo.svg";
+import { NavLink } from "react-router-dom";
+import "./Logo.css";
 
 const Logo = ({ menuOpen, toggleMenu }) => {
   return (
@@ -12,15 +12,11 @@ const Logo = ({ menuOpen, toggleMenu }) => {
           <img src={logo} alt="Logo" />
         </Link>
         <button onClick={toggleMenu} className="menu-bars">
-          {menuOpen ? (
-            <></>
-          ) : (
-            <i className="fa-sharp fa-solid fa-bars"></i>
-          )}
+          {menuOpen ? <></> : <i className="fa-sharp fa-solid fa-bars"></i>}
         </button>
       </div>
 
-      <div className={`logo-main-menu${menuOpen ? ' menu-open' : ''}`}>
+      <div className={`logo-main-menu${menuOpen ? " menu-open" : ""}`}>
         {menuOpen ? (
           <nav>
             <button className="show-menu-button" onClick={toggleMenu}>
@@ -32,7 +28,6 @@ const Logo = ({ menuOpen, toggleMenu }) => {
             <NavLink to="/contacts">Contacts</NavLink>
           </nav>
         ) : (
-        
           <i className="fa-sharp fa-solid fa-bars"></i>
         )}
       </div>

@@ -1,29 +1,27 @@
-import React from 'react'
-import LogoImageText from './FooterSection/LogoImageText'
-import FooterText from './FooterSection/FooterText'
-import FooterSocialMedia from './FooterSection/FooterSocialMedia'
-import './Footer.css';
-
+import React from "react";
+import LogoImageText from "./FooterSection/LogoImageText";
+import FooterText from "./FooterSection/FooterText";
+import FooterSocialMedia from "./FooterSection/FooterSocialMedia";
+import "./Footer.css";
 
 const Footer = () => {
   return (
     <footer>
-    <section className='footer-section'>
-      <div className='container'>
-          <div  className='logo-image-text'>
+      <section className="footer-section">
+        <div className="container">
+          <div className="logo-image-text">
             <div>
-               <LogoImageText/>
+              <LogoImageText />
             </div>
             <div>
-                <FooterText/>
-                
+              <FooterText />
             </div>
           </div>
-          <FooterSocialMedia/>
-       </div>
-    </section>
-  </footer>
-  )
-}
+          <FooterSocialMedia />
+        </div>
+      </section>
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;

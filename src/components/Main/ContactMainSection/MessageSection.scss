@@ -114,9 +114,8 @@
                    
                 .message-text{
 
-                  
-
                     padding: 20px;
+                    margin-bottom: 40px;
                     
                     h3{
                         color: #191919;
@@ -130,9 +129,24 @@
                     display: flex;
                     flex-direction: column;
                     row-gap: 20px;
+
+               
+                .message-btns-spacing{
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 2px;
+                    
+               
+                 label{
+                    margin-right: 95%;
+                    padding: 10px;
+                    
+                         }  
+                
+                 }
                 
                 
-                .searchbox{
+                .inputbox{
                     background-color: #FFFFFF;
                     display: flex;
                     align-items: center;
@@ -141,6 +155,8 @@
                     padding: 10px 20px;
                     border: 1px solid black;
                     width: 100%;
+
+
                 
                     input{
                         background-color: transparent;
@@ -164,9 +180,14 @@
 
                 }
 
+           
+
                 .btn-yellow{
                     width: 100%;
                 }
+
+
+          
 
        }
 
@@ -176,3 +197,12 @@
  }
 
 }  
+
+
+
+
+.error{
+    color: #df4848;
+    border: 1px solid #df4848;
+    background-color: #fff5f5;
+}

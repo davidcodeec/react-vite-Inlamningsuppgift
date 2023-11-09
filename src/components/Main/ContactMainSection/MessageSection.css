@@ -96,6 +96,7 @@
 }
 .message-section .container .content .message-items .message-text {
   padding: 20px;
+  margin-bottom: 40px;
 }
 .message-section .container .content .message-items .message-text h3 {
   color: #191919;
@@ -108,7 +109,16 @@
   flex-direction: column;
   row-gap: 20px;
 }
-.message-section .container .content .message-items .message-btns .searchbox {
+.message-section .container .content .message-items .message-btns .message-btns-spacing {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2px;
+}
+.message-section .container .content .message-items .message-btns .message-btns-spacing label {
+  margin-right: 95%;
+  padding: 10px;
+}
+.message-section .container .content .message-items .message-btns .inputbox {
   background-color: #FFFFFF;
   display: flex;
   align-items: center;
@@ -118,7 +128,7 @@
   border: 1px solid black;
   width: 100%;
 }
-.message-section .container .content .message-items .message-btns .searchbox input {
+.message-section .container .content .message-items .message-btns .inputbox input {
   background-color: transparent;
   border: none;
   outline: none;
@@ -136,4 +146,10 @@
 }
 .message-section .container .content .message-items .message-btns .btn-yellow {
   width: 100%;
+}
+
+.error {
+  color: #df4848;
+  border: 1px solid #df4848;
+  background-color: #fff5f5;
 }

@@ -2,6 +2,7 @@ import React from "react";
 import image_1 from "../../../assets/images/Image1.png";
 import { Link } from "react-router-dom";
 import "../HomeMainSections/AboutcompanySection.css";
+import Button from "../../Generics/Button";
 
 const AboutcompanySection = () => {
   return (
@@ -35,9 +36,7 @@ const AboutcompanySection = () => {
             </div>
 
             <div className="play-button-text">
-              <Link className="btn-yellow" to="consulting">
-                Learn More<i className="fa-solid fa-arrow-up-right"></i>
-              </Link>
+              <Button type="yellow" title="Learn More" url="about" />
 
               <div className="center-content">
                 <Link className="btn-play" to="intro">

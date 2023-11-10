@@ -112,11 +112,20 @@
 .message-section .container .content .message-items .message-btns .message-btns-spacing {
   display: flex;
   flex-direction: column;
-  row-gap: 2px;
+  row-gap: 3px;
 }
-.message-section .container .content .message-items .message-btns .message-btns-spacing label {
-  margin-right: 95%;
+.message-section .container .content .message-items .message-btns .message-btns-spacing .error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.message-section .container .content .message-items .message-btns .message-btns-spacing .error-container span {
+  display: inline-block;
+  margin-bottom: 5px;
   padding: 10px;
+}
+.message-section .container .content .message-items .message-btns .message-btns-spacing .inputbox {
+  width: 100%;
 }
 .message-section .container .content .message-items .message-btns .inputbox {
   background-color: #FFFFFF;
@@ -150,6 +159,5 @@
 
 .error {
   color: #df4848;
-  border: 1px solid #df4848;
   background-color: #fff5f5;
 }

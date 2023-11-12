@@ -33,7 +33,7 @@ const ArticleNewsSectionBox = ({
             <h3>{day}</h3>
             <p>{month}</p>
           </div>
-          <img src={imageUrl} alt="" />
+          <img src={imageUrl} alt={title} />
           <p>{title}</p>
           <h3>{category}</h3>
           <p>{content}</p>

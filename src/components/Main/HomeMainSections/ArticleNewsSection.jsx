@@ -9,8 +9,7 @@ const ArticleNewsSection = () => {
   const apiUrl = "https://win23-assignment.azurewebsites.net/api/articles";
 
   // Using useContext and Provider
-  const { articles, setArticles, currentGroup, setCurrentGroup } =
-    useArticleContext();
+  const { articles, setArticles } = useArticleContext();
 
   // Define the initial articles to fetch
   const initialArticleIdsToFetch = [
@@ -59,18 +58,6 @@ const ArticleNewsSection = () => {
     fetchData();
   }, []);
 
-  const getNextGroup = () => {
-    const nextGroup = (currentGroup + 1) % Math.ceil(articles.length / 3);
-    setCurrentGroup(nextGroup);
-  };
-
-  const getPreviousGroup = () => {
-    const previousGroup =
-      (currentGroup - 1 + Math.ceil(articles.length / 3)) %
-      Math.ceil(articles.length / 3);
-    setCurrentGroup(previousGroup);
-  };
-
   return (
     <>
       <section className="article-news-section">
@@ -85,37 +72,88 @@ const ArticleNewsSection = () => {
             </div>
           </div>
           <div className="image-spacing">
-            {articles
-              .slice(currentGroup * 3, currentGroup * 3 + 3)
-              .map((article, index) => (
-                <ArticleNewsSectionBox
-                  key={index}
-                  id={article.id}
-                  published={article.published}
-                  imageUrl={article.imageUrl}
-                  title={article.title}
-                  category={article.category}
-                  content={article.content}
-                />
-              ))}
-          </div>
-          <div className="circle-boxes">
-            {articles.length > 3 && (
-              <>
-                <button
-                  onClick={getPreviousGroup}
-                  disabled={currentGroup === 0}
-                >
-                  Back
-                </button>
-                <button
-                  onClick={getNextGroup}
-                  disabled={currentGroup === Math.ceil(articles.length / 3) - 1}
-                >
-                  Next
-                </button>
-              </>
-            )}
+            <div
+              id="carouselExampleDark"
+              className="carousel carousel-dark slide"
+            >
+              <div className="carousel-indicators">
+                {articles.reduce((indicators, _, index) => {
+                  if (index % 3 === 0) {
+                    const indicatorIndex = index / 3;
+                    indicators.push(
+                      <button
+                        key={indicatorIndex}
+                        type="button"
+                        data-bs-target="#carouselExampleDark"
+                        data-bs-slide-to={indicatorIndex}
+                        className={indicatorIndex === 0 ? "active" : ""}
+                        aria-current={indicatorIndex === 0}
+                        aria-label={`Slide ${indicatorIndex + 1}`}
+                      ></button>
+                    );
+                  }
+                  return indicators;
+                }, [])}
+              </div>
+              <div className="carousel-inner">
+                {articles
+                  .reduce((rows, article, index) => {
+                    if (index % 3 === 0) {
+                      rows.push([article]);
+                    } else {
+                      rows[rows.length - 1].push(article);
+                    }
+                    return rows;
+                  }, [])
+                  .map((row, rowIndex) => (
+                    <div
+                      key={rowIndex}
+                      className={`carousel-item ${
+                        rowIndex === 0 ? "active" : ""
+                      }`}
+                    >
+                      <div className="d-flex">
+                        {row.map((article, colIndex) => (
+                          <ArticleNewsSectionBox
+                            key={colIndex}
+                            id={article.id}
+                            published={article.published}
+                            imageUrl={article.imageUrl}
+                            title={article.title}
+                            category={article.category}
+                            content={article.content}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+              </div>
+
+              <button
+                className="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleDark"
+                data-bs-slide="prev"
+              >
+                <span
+                  className="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span className="visually-hidden">Previous</span>
+              </button>
+              <button
+                className="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleDark"
+                data-bs-slide="next"
+              >
+                <span
+                  className="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span className="visually-hidden">Next</span>
+              </button>
+            </div>
           </div>
         </div>
       </section>

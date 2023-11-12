@@ -17,7 +17,7 @@ const NewsLetterSection = () => {
           <input
             type="text"
             name=""
-            value=""
+            defaultValue=""
             placeholder="username@domain.com"
           />
           <Button type="yellow" title="Subscribe" url="/subscribe" />

@@ -9,8 +9,8 @@ const MessageSection = () => {
   const [message, setMessage] = useState("");
   const [messageError, setMessageError] = useState(false);
 
-  const handleChange = (e) => {
-    switch (e.target.name) {
+  const handleChange = (e,fieldName) => {
+    switch (fieldName) {
       case "name":
         setName(e.target.value);
         setNameError(validateName(e.target.value));
@@ -22,6 +22,8 @@ const MessageSection = () => {
       case "message":
         setMessage(e.target.value);
         setMessageError(validateMessage(e.target.value));
+        break;
+        default:
         break;
     }
   };
@@ -222,7 +224,8 @@ const MessageSection = () => {
                           name="name"
                           value={name}
                           placeholder="Name*"
-                          onChange={(e) => handleChange(e)}
+                          //onChange={(e) => handleChange(e)}
+                          onChange={(e) => handleChange(e, "name")}
                           onBlur={() => handleBlur("name")}
                           onFocus={handleFocus}
                         />
@@ -241,7 +244,8 @@ const MessageSection = () => {
                           name="email"
                           value={email}
                           placeholder="Email*"
-                          onChange={(e) => handleChange(e)}
+                          //onChange={(e) => handleChange(e)}
+                          onChange={(e) => handleChange(e, "email")}
                           onBlur={() => handleBlur("email")}
                           onFocus={handleFocus}
                         />
@@ -263,7 +267,8 @@ const MessageSection = () => {
                         cols="30"
                         rows="10"
                         placeholder="Your Message*"
-                        onChange={(e) => handleChange(e)}
+                        //onChange={(e) => handleChange(e)}
+                        onChange={(e) => handleChange(e, "message")}
                         onBlur={() => handleBlur("message")}
                         onFocus={handleFocus}
                       ></textarea>

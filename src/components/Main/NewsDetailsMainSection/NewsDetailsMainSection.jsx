@@ -224,7 +224,7 @@ const NewsDetailsMainSection = () => {
                   <input
                     type="text"
                     name=""
-                    value=""
+                    defaultValue=""
                     placeholder="Type to search..."
                   />
                 </form>

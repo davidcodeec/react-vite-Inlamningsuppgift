@@ -31,10 +31,12 @@ const ArticleNewsMainSectionBox = ({
           <h3>{day}</h3>
           <p>{month}</p>
         </div>
-        <img src={imageUrl} alt="" />
-        <p>{title}</p>
-        <h3>{category}</h3>
-        <p>{content}</p>
+        <div>
+          <img src={imageUrl} alt="" className="img-fluid" style={{ width: '350px', height: '250px' }} />
+          <p>{title}</p>
+          <h3>{category}</h3>
+          <p>{content}</p>
+        </div>
       </div>
     </>
   );

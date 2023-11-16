@@ -28,15 +28,32 @@ const ArticleNewsSectionBox = ({
   return (
     <>
       <Link to={`/news/${id}`} className="text-decoration-none">
-        <div className="image-spacing-text">
-          <div className="date">
+        <div
+          className="image-spacing-text row g-9"
+          style={{ gap: "1rem", marginBottom: "1rem" }}
+        >
+          <div className="date col-12 col-md-3">
             <h3>{day}</h3>
             <p>{month}</p>
           </div>
-          <img src={imageUrl} alt={title} />
-          <p>{title}</p>
-          <h3>{category}</h3>
-          <p>{content}</p>
+          <div className="col-12 col-md-9">
+            <img
+              src={imageUrl}
+              alt={title}
+              className="img-fluid"
+              style={{
+                width: "100%",
+                height: "260px",
+                marginBottom: "1rem",
+                objectFit: "cover",
+              }}
+            />
+            <div className="">
+              <p>{title}</p>
+              <h3>{category}</h3>
+              <p>{content}</p>
+            </div>
+          </div>
         </div>
       </Link>
     </>

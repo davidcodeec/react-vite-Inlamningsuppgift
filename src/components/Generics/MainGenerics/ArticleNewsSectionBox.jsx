@@ -43,7 +43,7 @@ const ArticleNewsSectionBox = ({
               className="img-fluid"
               style={{
                 width: "100%",
-                height: "260px",
+                height: "250px",
                 marginBottom: "1rem",
                 objectFit: "cover",
               }}
